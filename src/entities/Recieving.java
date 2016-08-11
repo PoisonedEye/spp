@@ -47,7 +47,7 @@ public class Recieving {
     @Column
     String time;
     @ManyToOne
-    @JoinColumn(name = "reciever_id")
+    @JoinColumn(name = "employee_id")
     Employee reciever;
     @ManyToOne
     @JoinColumn(name = "company_id")

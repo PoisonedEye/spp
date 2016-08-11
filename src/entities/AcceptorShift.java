@@ -43,7 +43,7 @@ public class AcceptorShift {
     }
 
     @ManyToOne
-    @JoinColumn(name = "acceptor_id")
+    @JoinColumn(name = "employee_id")
     private Employee acceptor;
     @Column
     private String begining;

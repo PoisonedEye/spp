@@ -46,7 +46,7 @@ public class Transfer {
     @Column
     String time;
     @ManyToOne
-    @JoinColumn(name = "transferer_id")
+    @JoinColumn(name = "employee_id")
     Employee transferer;
     @ManyToOne
     @JoinColumn(name = "company_id")
