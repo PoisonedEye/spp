@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.convention.default.parent.package" value="angularstruts"/>
+    <constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.Restful2ActionMapper"/>
+    <constant name="struts.enable.SlashesInActionNames" value="true"/>
+    <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+
+    <package name="json-default" extends="struts-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+        <interceptors>
+            <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+        </interceptors>
+    </package>
+
+    <package name="data-actions" extends="json-default">
+        <action name="failedLoginInfo" class="actions.FailedLoginAction" method="failedLoginInfo">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        <action name="login" class="actions.LoginAction" method="tryLogin">
+            <result type="json">
+                <param name="includeProperties">
+                    answer
+                </param>
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        <action name="logout" class="actions.LoginAction" method="tryLogout">
+            <result type="json">
+                <param name="includeProperties">
+                    answer
+                </param>
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        <action name="userInfo" class="actions.UserAction" method="userInfo">
+            <result type="json">
+                <param name="includeProperties">
+                    fullName,
+                    position
+                </param>
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        <action name="userPosition" class="actions.UserAction" method="userPosition">
+            <result type="json">
+                <param name="excludeNullProperties">true</param>
+                <param name="noCache">true</param>
+            </result>
+        </action>
+        <!-- GET DATA -->
+        <action name="dataEmployees" class="actions.GetDataAction" method="dataEmployees">
+            <result type="json"/>
+        </action>
+        <action name="dataPositions" class="actions.GetDataAction" method="dataPositions">
+            <result type="json"/>
+        </action>
+        <action name="dataAddresses" class="actions.GetDataAction" method="dataAddresses">
+            <result type="json"/>
+        </action>
+        <action name="dataAcceptorShifts" class="actions.GetDataAction" method="dataAcceptorShifts">
+            <result type="json"/>
+        </action>
+        <action name="dataCells" class="actions.GetDataAction" method="dataCells">
+            <result type="json"/>
+        </action>
+        <action name="dataCellTypes" class="actions.GetDataAction" method="dataCellTypes">
+            <result type="json"/>
+        </action>
+        <action name="dataCellVisitings" class="actions.GetDataAction" method="dataCellVisitings">
+            <result type="json"/>
+        </action>
+        <action name="dataCompanies" class="actions.GetDataAction" method="dataCompanies">
+            <result type="json"/>
+        </action>
+        <action name="dataProducts" class="actions.GetDataAction" method="dataProducts">
+            <result type="json"/>
+        </action>
+        <action name="dataProductTypes" class="actions.GetDataAction" method="dataProductTypes">
+            <result type="json"/>
+        </action>
+        <action name="dataRecievings" class="actions.GetDataAction" method="dataRecievings">
+            <result type="json"/>
+        </action><action name="dataTransfers" class="actions.GetDataAction" method="dataTransfers">
+            <result type="json"/>
+        </action>
+        <action name="dataUnitSets" class="actions.GetDataAction" method="dataUnitSets">
+            <result type="json"/>
+        </action>
+        <action name="dataAcceptors" class="actions.GetDataAction" method="dataAcceptors">
+            <result type="json"/>
+        </action>
+
+        <!-- UPDATE DATA ===================================================================================-->
+        <action name="updateAcceptorShift" class="actions.update.UpdateAcceptorShiftAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateAddress" class="actions.update.UpdateAddressAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateCell" class="actions.update.UpdateCellAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateCellType" class="actions.update.UpdateCellTypeAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateCellVisiting" class="actions.update.UpdateCellVisitingAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateCompany" class="actions.update.UpdateCompanyAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateEmployee" class="actions.update.UpdateEmployeeAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updatePosition" class="actions.update.UpdatePositionAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateProduct" class="actions.update.UpdateProductAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateProductType" class="actions.update.UpdateProductTypeAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateRecieving" class="actions.update.UpdateRecievingAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateTransfer" class="actions.update.UpdateTransferAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="updateUnitSet" class="actions.update.UpdateUnitSetAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <!-- DELETE DATA ===================================================================================-->
+        <action name="deleteAcceptorShift" class="actions.delete.DeleteAcceptorShiftAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteAddress" class="actions.delete.DeleteAddressAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteCell" class="actions.delete.DeleteCellAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteCellType" class="actions.delete.DeleteCellTypeAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteCellVisiting" class="actions.delete.DeleteCellVisitingAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteCompany" class="actions.delete.DeleteCompanyAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteEmployee" class="actions.delete.DeleteEmployeeAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deletePosition" class="actions.delete.DeletePositionAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteProduct" class="actions.delete.DeleteProductAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteProductType" class="actions.delete.DeleteProductTypeAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteRecieving" class="actions.delete.DeleteRecievingAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteTransfer" class="actions.delete.DeleteTransferAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="deleteUnitSet" class="actions.delete.DeleteUnitSetAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <!-- CREATE DATA ===================================================================================-->
+        <action name="createAcceptorShift" class="actions.create.CreateAcceptorShiftAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createAddress" class="actions.create.CreateAddressAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createCell" class="actions.create.CreateCellAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createCellType" class="actions.create.CreateCellTypeAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createCellVisiting" class="actions.create.CreateCellVisitingAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createCompany" class="actions.create.CreateCompanyAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createEmployee" class="actions.create.CreateEmployeeAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createPosition" class="actions.create.CreatePositionAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createProduct" class="actions.create.CreateProductAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createProductType" class="actions.create.CreateProductTypeAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createRecieving" class="actions.create.CreateRecievingAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createTransfer" class="actions.create.CreateTransferAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+        <action name="createUnitSet" class="actions.create.CreateUnitSetAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="json">
+                <param name="enableSMD">true</param>
+            </interceptor-ref>
+            <result type="json"/>
+        </action>
+    </package>
+
+    <package name="page-actions" namespace="/" extends="struts-default">
+        <action name="entry">
+            <result>
+                /entry.html
+            </result>
+        </action>
+        <action name="admin">
+            <result>
+                /admin.html
+            </result>
+        </action>
+        <action name="background">
+            <result>
+                /images/bg.jpg
+            </result>
+        </action>
+        <action name="wait">
+            <result>
+                /wait.html
+            </result>
+        </action>
+        <action name="failedLogin">
+            <result>
+                /failedLogin.html
+            </result>
+        </action>
+    </package>
+
+</struts>

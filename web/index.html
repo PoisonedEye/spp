@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <script type="text/javascript" src="javascripts/angular.js"></script>
+    <script type="text/javascript" src="javascripts/jquery-2.2.3.js"></script>
+    <script type="text/javascript" src="javascripts/angular-route.min.js"></script>
+
+    <script type="text/javascript" src="javascripts/angular-module.js?123"></script>
+    <script type="text/javascript" src="javascripts/angular-controllers.js?123"></script>
+    <script type="text/javascript" src="javascripts/angular-services.js?123"></script>
+    <script type="text/javascript" src="javascripts/angular-redirector.js?123"></script>
+
+    <script type="text/javascript" src="javascripts/sha.js?123"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link href="/stylesheets/screen.css?123" media="screen, projection" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Шапка, содержащая имя, должность и кнопку выхода из профиля. -->
+
+<header data-ng-controller="HeaderController">
+    <div id="exitButton" data-ng-click="logout()">
+        Выход
+    </div>
+    <div id="userName">
+        {{user.name}}
+    </div>
+    <div id="userPosition">
+        {{user.position}}
+    </div>
+
+</header>
+
+<!-- Сюда вставляются подключаемые страницы -->
+<div id="main">
+    <div data-ng-view></div>
+</div>
+
+</body>
+</html>

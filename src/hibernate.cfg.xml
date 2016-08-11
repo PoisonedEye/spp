@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Настройки подключения к БД -->
+        <property name="connection.driver_class">
+            com.mysql.jdbc.Driver
+        </property>
+
+        <property name="connection.url">
+            jdbc:mysql://127.0.0.1:3306/spp
+        </property>
+
+        <property name="connection.username">ricceron</property>
+        <property name="connection.password">48934893</property>
+
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL диалект -->
+        <property name="dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <!-- Включить автоматическое управление контекстом сессии -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Отключение кеша второго уровня  -->
+        <property name="cache.provider_class">
+            org.hibernate.cache.internal.NoCachingRegionFactory
+        </property>
+
+        <!-- Вывод в консоль SQL-запросов -->
+        <property name="show_sql">true</property>
+
+        <!-- Подключение объектов сущностей -->
+        <mapping package="entities"/>
+        <mapping class="entities.Employee"/>
+        <mapping class="entities.Position"/>
+        <mapping class="entities.Address"/>
+        <mapping class="entities.AcceptorShift"/>
+        <mapping class="entities.Cell"/>
+        <mapping class="entities.CellType"/>
+        <mapping class="entities.CellVisiting"/>
+        <mapping class="entities.Company"/>
+        <mapping class="entities.Product"/>
+        <mapping class="entities.ProductType"/>
+        <mapping class="entities.Recieving"/>
+        <mapping class="entities.Transfer"/>
+        <mapping class="entities.UnitSet"/>
+    </session-factory>
+
+</hibernate-configuration>
