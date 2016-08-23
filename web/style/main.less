@@ -1,12 +1,10 @@
-/*@import 'compass/reset';*/
-
-$defaultTextColor: #555555;
-$adminBarColor: #8DB6C8;
+@defaultTextColor: #555555;
+@adminBarColor: #8DB6C8;
 
 html, body {
   background-image: url(../images/bg.jpg);
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   display: table;
 }
 ul {
@@ -18,7 +16,7 @@ header {
   height: 10%;
   min-height:40px;
   width: 99%;
-  color: $defaultTextColor;
+  color: @defaultTextColor;
   vertical-align: middle;
   margin: 0;
   padding: 0.5%;
@@ -67,14 +65,14 @@ header {
       display: table-cell;
       font-size: 3vh;
       margin-bottom: 3vh;
-      color: $defaultTextColor;
+      color: @defaultTextColor;
 
     }
 
     .form-label {
       font-size: 3vh;
       margin-bottom: 3vh;
-      color: $defaultTextColor;
+      color: @defaultTextColor;
       text-align: center;
     }
 
@@ -83,7 +81,7 @@ header {
       text-align: center;
       padding: 2vh;
       margin-top: 2vh;
-      color: $defaultTextColor;
+      color: @defaultTextColor;
       font-size: 2vh;
       transition: 300ms;
       &:hover {
@@ -96,7 +94,7 @@ header {
   width: 100vw;
   height: 90vh;
   margin: 0;
-  background-color: $adminBarColor;
+  background-color: @adminBarColor;
 }
 .nav-bar {
   position: relative;
@@ -148,7 +146,7 @@ header {
         display: table-cell;
         text-align: center;
         font-size: 3vh;
-        color: $defaultTextColor;
+        color: @defaultTextColor;
       }
 
     }
@@ -170,7 +168,7 @@ header {
   .form-button {
     background-color: #a9ecff;
     text-align: center;
-    color: $defaultTextColor;
+    color: @defaultTextColor;
     transition: 300ms;
     float: left;
     width: 46%;
@@ -200,7 +198,7 @@ header {
     .form-label {
       font-size: 3vh;
       margin-bottom: 3vh;
-      color: $defaultTextColor;
+      color: @defaultTextColor;
       text-align: center;
     }
   }
@@ -209,7 +207,7 @@ header {
     text-align: center;
     padding: 2vh;
     margin-top: 2vh;
-    color: $defaultTextColor;
+    color: @defaultTextColor;
     font-size: 2vh;
     transition: 300ms;
     &:hover {
@@ -265,7 +263,7 @@ header {
     background-color: #a9ecff;
     text-align: center;
     padding: 2vh;
-    color: $defaultTextColor;
+    color: @defaultTextColor;
     font-size: 2vh;
     transition: 300ms;
     width: inherit;
