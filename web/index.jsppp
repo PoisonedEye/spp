@@ -1,0 +1,13 @@
+<%@ taglib prefix="html" uri="/struts-tags" %>
+<%@page contentType="text/html; charset=UTF-8" %>
+<html:include value="template.jsp"/>
+<div id="main">
+    <form class="entry-box">
+        <label class="form-label" for="login">Логин</label>
+        <input type="text" class="form-element" id="login" data-ng-model="data.login"/><br/>
+        <label class="form-label" for="password">Пароль:</label>
+        <input type="password" id="password" class="form-element" data-ng-model="data.password"/><br/>
+        <div class="form-button" onclick="login()">Войти</div>
+    </form>
+</div>
+<html:include value="template-end.jsp"/>
