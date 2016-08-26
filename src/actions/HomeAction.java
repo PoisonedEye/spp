@@ -34,23 +34,14 @@ public class HomeAction extends ActionSupport implements SessionAware {
         userSession = session;
     }
 
-    public String userInfo() {
+    public String home() {
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
             fullName = (String) userSession.get("fullName");
             position = (String) userSession.get("position");
             return SUCCESS;
         }
-        fullName = "Аноним";
-        position = "Гость";
-        return SUCCESS;
-    }
-
-    public String userPosition() {
-        if (ServiceUtil.getLoginService().isLogined(userSession)) {
-            position = (String) userSession.get("position");
-            return SUCCESS;
-        }
-        position = "Гость";
+        fullName = "Greetings!";
+        position = "Guest";
         return SUCCESS;
     }
 

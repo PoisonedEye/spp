@@ -11,6 +11,9 @@
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 
+
+
+
     <package name="json-default" extends="struts-default">
         <result-types>
             <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
@@ -30,6 +33,8 @@
         <action name="login" class="actions.LoginAction" method="tryLogin">
             <result type="json">
                 <param name="includeProperties">
+                    login,
+                    password,
                     answer
                 </param>
                 <param name="excludeNullProperties">true</param>
@@ -383,9 +388,9 @@
     </package>
 
     <package name="page-actions" namespace="/" extends="struts-default">
-        <action name="entry">
+        <action name="home" class="actions.HomeAction" method="home">
             <result>
-                /entry.html
+                /home.jsp
             </result>
         </action>
         <action name="admin">
