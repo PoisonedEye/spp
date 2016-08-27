@@ -10,7 +10,7 @@ function login(){
     $.post("login", data,
         function (result) {
             if (result.answer === true) {
-                location.replace("/admin");
+                location.refresh();
             }
             else {
                 alert(result.answer);

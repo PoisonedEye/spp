@@ -87,8 +87,8 @@ Sha256.hash = function (msg) {
 
         // 3 - main loop (note 'addition modulo 2^32')
         for (var t = 0; t < 64; t++) {
-            var T1 = h + Sha256.Σ1(e) + Sha256.Ch(e, f, g) + K[t] + W[t];
-            var T2 = Sha256.Σ0(a) + Sha256.Maj(a, b, c);
+            var T1 = h + Sha256.SUMM1(e) + Sha256.Ch(e, f, g) + K[t] + W[t];
+            var T2 = Sha256.SUMM0(a) + Sha256.Maj(a, b, c);
             h = g;
             g = f;
             f = e;
@@ -126,10 +126,10 @@ Sha256.ROTR = function (n, x) {
  * Logical functions [§4.1.2].
  * @private
  */
-Sha256.Σ0 = function (x) {
+Sha256.SUMM0 = function (x) {
     return Sha256.ROTR(2, x) ^ Sha256.ROTR(13, x) ^ Sha256.ROTR(22, x);
 };
-Sha256.Σ1 = function (x) {
+Sha256.SUMM1 = function (x) {
     return Sha256.ROTR(6, x) ^ Sha256.ROTR(11, x) ^ Sha256.ROTR(25, x);
 };
 Sha256.σ0 = function (x) {
