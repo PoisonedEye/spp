@@ -10,7 +10,7 @@ function login(){
     $.post("login", data,
         function (result) {
             if (result.answer === true) {
-                location.refresh();
+                location.reload();
             }
             else {
                 alert(result.answer);
