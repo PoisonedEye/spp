@@ -1,0 +1,261 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/opensans.ttf");
+  src: local('☺'),
+  url("../fonts/opensans.ttf") format("truetype");
+
+  font-weight: normal;
+  font-style:normal;
+}
+
+*{
+    margin:0;
+    padding:0;
+    font-family:"Open Sans";
+    font-weight:500;
+}
+
+.content {
+    min-height: calc(100vh - 50px);
+}
+
+body{
+    background-color:rgb(199,179,170);
+}
+
+header{
+    background-color:rgb(147,124,116);
+    padding:5px;
+    overflow:hidden;   
+}
+
+
+footer{
+    text-transform:uppercase;
+    background-color:rgb(123,93,59);
+    overflow:hidden;  
+    height:50px; 
+    color:rgb(199,179,170);
+    padding:20px;
+    font-size:20px;
+}
+
+.block{
+    margin:20px 50px 10px 50px;
+    border-radius:5px;
+    float: left;
+}
+
+.button-block{
+    overflow: hidden;
+}
+
+.user-name{
+    color:white;
+    text-transform:uppercase;
+    font-size:23px;
+    float:left;
+    padding:5px;
+    margin-left:10px;
+    margin-top:1px;
+    font-weight:bold;
+}
+
+.signout-btn{
+    width:80px;
+    padding:10px;
+    text-align:center;
+    border-radius:3px;
+    border: none;
+    background-color:#00ffff;
+    float:right;
+    margin-right:15px;
+    background-color:antiquewhite;
+    cursor:pointer;
+    transition:background-color 200ms ease;
+}
+
+.signout-btn:hover{
+    background-color:#c2dbeb;
+}
+
+/* СПИСОК */
+
+.dropbtn {
+    background-color: antiquewhite;
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    margin: 15px;
+    margin-left: 50px;
+    float: left;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:antiquewhite;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: white;
+}
+
+
+.save-btn{
+    float: left;
+    width:90px;
+    text-align:center;
+    text-decoration: none;
+    font-size: 14px;
+    border: antiquewhite 1px solid;
+    color: black;
+    padding: 17px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 15px auto;
+    margin-left: 30px;
+    transition: .5s;
+    border-radius: 0px;
+}
+.save-btn:hover {
+    top: 5px;
+    transition: .5s;
+    color: black;
+    border: rgb(147,124,116) 1px solid;
+    border-radius: 10px;
+}
+.save-btn:active {
+    color: black;
+    border: rgb(147,124,116)1px solid;
+    transition: .07s;
+    background-color: #FFF;
+}
+
+.cancel-btn{
+    float: left;
+    width:90px;
+    text-align:center;
+    text-decoration: none;
+    font-size: 14px;
+    border: antiquewhite 1px solid;
+    color: black;
+    padding: 17px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 15px auto;
+    margin-left: 30px;
+    transition: .5s;
+    border-radius: 0px;
+}
+.cancel-btn:hover {
+    top: 5px;
+    transition: .5s;
+    color: black;
+    border: rgb(147,124,116) 1px solid;
+    border-radius: 10px;
+}
+.cancel-btn:active {
+    color: black;
+    border: rgb(147,124,116)1px solid;
+    transition: .07s;
+    background-color: #FFF;
+}
+
+.add-btn{
+    float: left;
+    width:90px;
+    text-align:center;
+    text-decoration: none;
+    font-size: 14px;
+    border: antiquewhite 1px solid;
+    color: black;
+    padding: 17px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 15px auto;
+    margin-left: 30px;
+    transition: .5s;
+    border-radius: 0px;
+}
+.add-btn:hover {
+    top: 5px;
+    transition: .5s;
+    color: black;
+    border: rgb(147,124,116) 1px solid;
+    border-radius: 10px;
+}
+.add-btn:active {
+    color: black;
+    border: rgb(147,124,116)1px solid;
+    transition: .07s;
+    background-color: #FFF;
+}
+
+
+/* TABLE*/
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    text-align: center;
+    margin: auto;
+    width: 95%;
+    margin-top: 10px;
+    border-radius: 10px;
+    border-spacing: 0;
+}
+th, td:first-child {
+    background: rgb(180, 103, 103);
+    color: white;
+    padding: 10px 20px;
+}
+th, td {
+    border-color: white;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+}
+
+th:first-child, td:first-child {
+text-align: left;
+}
+th:first-child {
+border-top-left-radius: 10px;
+}
+th:last-child {
+border-top-right-radius: 10px;
+border-right: none;
+}
+td {
+padding: 10px 20px;
+background: rgb(246, 233, 224);
+}
+tr:last-child td:first-child {
+border-radius: 0 0 0 10px;
+}
+tr:last-child td:last-child {
+border-radius: 0 0 10px 0;
+}
+tr td:last-child {
+border-right: none;
+}
