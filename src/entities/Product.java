@@ -10,12 +10,23 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
 
+    @Column(name = "unical_id")
+    Integer unicalId;
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUnicalId() {
+        return unicalId;
+    }
+
+    public void setUnicalId(Integer unicalId) {
+        this.unicalId = unicalId;
     }
 
     public Recieving getRecieving() {
