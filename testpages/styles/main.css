@@ -52,6 +52,10 @@ footer{
     float:left;
 }
 
+.main-column-wide{
+    width:80%;
+    float:left;
+}
 
 .nav-column{
     width:15%;
@@ -100,6 +104,11 @@ nav ul li:hover{
     }
 
     .main-column{
+        width:100%;
+        float:none;
+    }
+
+    .main-column-wide{
         width:100%;
         float:none;
     }

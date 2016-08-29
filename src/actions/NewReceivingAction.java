@@ -1,6 +1,6 @@
 package actions;
 
-public class HomeAction extends BaseAction {
+public class NewReceivingAction extends BaseAction {
     public String execute() {
         return SUCCESS;
     }

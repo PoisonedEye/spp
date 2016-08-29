@@ -1,6 +1,3 @@
-/**
- * Created by konst on 8/24/2016.
- */
 function login(){
     var loginData = $("#login").val();
     var passwordData =  $("#password").val();
