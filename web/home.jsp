@@ -1,24 +1,34 @@
-<%@ taglib prefix="html" uri="/struts-tags" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html; charset=UTF-8" %>
-<html:include value="template.jsp"/>
-<div class="nav-column">
-    <nav>
-        <ul>
-            <li>
-                Navigation 1
-            </li>
-            <li>
-                Navigation 2
-            </li>
-            <li>
-                Navigation 3
-            </li>
-            <li>
-                Navigation 4
-            </li>
-        </ul>
-    </nav>
-</div>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <script type="text/javascript" src="js/libraries/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/helpers/sha.js"></script>
+</head>
+<body>
+<div class="content">
+    <s:include value="header.jsp"/>
+    <div class="nav-column">
+        <nav>
+            <ul>
+                <li>
+                    Navigation 1
+                </li>
+                <li>
+                    Navigation 2
+                </li>
+                <li>
+                    Navigation 3
+                </li>
+                <li>
+                    Navigation 4
+                </li>
+            </ul>
+        </nav>
+    </div>
 <div class="main-column">
     <div class="company block">
         <div class="company-name">
@@ -54,4 +64,7 @@
         <img style="float:right; height:300px; margin-right:50px;" src="images/joyful.png" />
     </div>
 </div>
-<html:include value="template-end.jsp"/>
+</div>
+<s:include value="footer.jsp"/>
+</body>
+</html>

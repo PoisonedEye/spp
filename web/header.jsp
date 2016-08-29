@@ -1,10 +1,9 @@
-<%@page contentType="text/html; charset=UTF-8" %>
-</div>
-<footer>
-    Phone number: +1 111 111 111<br/>
-    Company Name 2016 @ all rights reserved.
-</footer>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<header>
+    <div class="user-name"><s:property value="fullName"/></div>
+    <div onclick="signModalShow()" class="signin-btn">Sign in</div>
+</header>
 <div class="hider"></div>
 <form class="signin-modal">
     <div class="title">Sign in</div>
@@ -16,5 +15,3 @@
     <input id="password"/>
     <div class="submit" onclick="login()">Submit</div>
 </form>
-</body>
-</html>

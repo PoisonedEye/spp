@@ -388,29 +388,23 @@
     </package>
 
     <package name="page-actions" namespace="/" extends="struts-default">
-        <action name="home" class="actions.HomeAction" method="home">
+        <action name="redirect" class="actions.RedirectAction">
+            <result name="Guest" type="chain">home</result>
+            <result name="Storekeeper" type="chain">new-receiving</result>
+        </action>
+        <action name="home" class="actions.HomeAction">
             <result>
                 /home.jsp
             </result>
         </action>
-        <action name="admin">
+        <action name="new-receiving" class="actions.NewReceivingAction">
             <result>
-                /admin.html
+                /new-receiving.jsp
             </result>
         </action>
-        <action name="background">
+        <action name="new-transfer" class="actions.NewTransferAction">
             <result>
-                /images/bg.jpg
-            </result>
-        </action>
-        <action name="wait">
-            <result>
-                /wait.html
-            </result>
-        </action>
-        <action name="failedLogin">
-            <result>
-                /failedLogin.html
+                /new-transfer.jsp
             </result>
         </action>
     </package>

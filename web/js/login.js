@@ -1,6 +1,3 @@
-/**
- * Created by konst on 8/24/2016.
- */
 function login(){
     var loginData = $("#login").val();
     var passwordData =  $("#password").val();
@@ -10,7 +7,7 @@ function login(){
     $.post("login", data,
         function (result) {
             if (result.answer === true) {
-                location.refresh();
+                location.reload();
             }
             else {
                 alert(result.answer);
