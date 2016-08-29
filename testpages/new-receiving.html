@@ -1,8 +1,11 @@
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
     <link rel="stylesheet" type="text/css" href="styles/storekeeper.css" />
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-    <script type="text/javascript" src="js/storekeeper.js"></script>
+    <script type="text/javascript" src="js/storekeeper/common.js"></script>
+    <script type="text/javascript" src="js/storekeeper/classes/productStorage.js"></script>
+    <script type="text/javascript" src="js/storekeeper/receiving.js"></script>
 </head>
 <body>
     <div class="content">
@@ -22,7 +25,7 @@
         <div class="main-column-wide">
             <div class="edit-container block">
                 <div class="edit-title">
-                    Create new receiving
+                    New receiving
                 </div>
                 <div class="button-line">
                     <div class="btn" onclick="toggleAcceptors()">Acceptors</div>
@@ -43,19 +46,15 @@
                         <fieldset>
                             <label for="barcode-edit">Barcode</label>
                             <input id="barcode-edit" />
-                        </fieldset>
-
-                        
+                        </fieldset>                      
                         <fieldset>
                             <label for="producer-edit">Producer</label>
                             <input id="producer-edit" />
-                        </fieldset>
-                        
+                        </fieldset>                      
                         <fieldset>
                             <label for="model-edit">Model</label>
                             <input id="model-edit" />
-                        </fieldset>
-                        
+                        </fieldset>                      
                         <fieldset class="small-edits">
                             <fieldset>
                                 <label for="weight-edit">Weight</label>
@@ -65,18 +64,15 @@
                             <fieldset>
                                 <label for="pack-width-edit">Width</label>
                                 <input id="pack-width-edit" />
-                            </fieldset>
-                            
+                            </fieldset>                           
                             <fieldset>
                                 <label for="pack-height-edit">Height</label>
                                 <input id="pack-height-edit" />
-                            </fieldset>
-                            
+                            </fieldset>                            
                             <fieldset>
                                 <label for="pack-length-edit">Length</label>
                                 <input id="pack-length-edit" />
-                            </fieldset>
-                            
+                            </fieldset>                            
                             <fieldset>
                                 <label for="count-edit">Count </label>
                                 <input id="count-edit" />
@@ -110,7 +106,7 @@
                 </div>
             </div>              
             <div class="create-btn">
-                Create
+                Begin recieving
             </div>        
         </div>
 
