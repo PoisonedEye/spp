@@ -5,7 +5,7 @@
         <ul>
             <li><a href="<s:url action="new-receiving"/>">New receiving</a></li>
             <li><a href="<s:url action="new-transfer"/>">New transfer</a></li>
-            <li>Current receiving / transfer</li>
+            <li><a href="#">Current receivings and transfers</a></li>
         </ul>
     </nav>
 </div>

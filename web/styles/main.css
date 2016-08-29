@@ -71,15 +71,27 @@ nav{
 }
 
 nav ul li{
-    text-align:center;
-    padding:20px;
     list-style:none;
-    cursor:pointer;
 }
 
-nav ul li:hover{
+nav ul li a{
+    display: block;
+    color:black;
+    text-align:center;
+    padding:20px;
+    cursor:pointer;
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    color:black;
     background-color:aquamarine;
 }
+
+nav ul li a:visited{
+    color:black;
+}
+
 
 @media screen and (max-width:1000px){
     .nav-column{
@@ -98,9 +110,6 @@ nav ul li:hover{
 
     nav ul li{
         display:inline-block;
-        text-align:center;
-        padding:20px;
-        list-style:none;
     }
 
     .main-column{
@@ -130,7 +139,6 @@ nav ul li:hover{
     padding:10px;
     text-align:center;
     border-radius:3px;
-    background-color:#00ffff;
     float:right;
     margin-right:15px;
     background-color:antiquewhite;
@@ -197,7 +205,7 @@ nav ul li:hover{
 
 .why-container{
     float:none;
-    padding:30px 30px 30px 0px;
+    padding:30px 30px 30px 0;
     font-size:30px;
     color:rgb(246,233,224);
     background-color:rgb(147,124,116);
@@ -224,7 +232,7 @@ nav ul li:hover{
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 10px 0 10px 17.3px;
+    border-width: 10px 0 10px 17px;
     border-color: transparent transparent transparent rgb(246,233,224);
     margin-right:50px;
 }
@@ -267,7 +275,6 @@ nav ul li:hover{
 }
 
 .submit{
-    background-color:red;
     margin-top:40px;
     padding:10px;
     background-color:antiquewhite;
