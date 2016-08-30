@@ -7,6 +7,7 @@
     <script type="text/javascript" src="js/home.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/helpers/sha.js"></script>
+    <title>Home</title>
 </head>
 <body>
 <div class="content">

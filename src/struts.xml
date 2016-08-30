@@ -391,10 +391,16 @@
         <action name="redirect" class="actions.RedirectAction">
             <result name="Guest" type="chain">home</result>
             <result name="Storekeeper" type="chain">new-receiving</result>
+            <result name="Administrator" type="chain">admin</result>
         </action>
         <action name="home" class="actions.HomeAction">
             <result>
                 /home.jsp
+            </result>
+        </action>
+        <action name="admin" class="actions.AdminAction">
+            <result>
+                /admin.jsp
             </result>
         </action>
         <action name="new-receiving" class="actions.NewReceivingAction">

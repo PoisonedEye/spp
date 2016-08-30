@@ -8,6 +8,7 @@
     <script type="text/javascript" src="js/storekeeper/common.js"></script>
     <script type="text/javascript" src="js/storekeeper/classes/availableProductStorage.js"></script>
     <script type="text/javascript" src="js/storekeeper/transfer.js"></script>
+    <title>New transfer</title>
 </head>
 <body>
     <div class="content">

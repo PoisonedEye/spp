@@ -8,6 +8,7 @@
     <script type="text/javascript" src="js/storekeeper/common.js"></script>
     <script type="text/javascript" src="js/storekeeper/classes/productStorage.js"></script>
     <script type="text/javascript" src="js/storekeeper/receiving.js"></script>
+    <title>New receiving</title>
 </head>
 <body>
     <div class="content">
