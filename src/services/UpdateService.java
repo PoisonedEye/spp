@@ -35,8 +35,8 @@ public class UpdateService {
                     return "Назначение и снятие должности 'Администратор' доступно только самим администраторам.";
                 }
             }
-            if (json.getNewPassword() != null)
-                employee.setPassword(json.getNewPassword());
+            if (json.getPassword() != null)
+                employee.setPassword(json.getPassword());
             employee.setPosition(position);
         } catch (ClassCastException ex) {
             return ex.getMessage();

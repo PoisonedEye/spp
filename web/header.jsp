@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <header>
     <div class="user-name"><s:property value="fullName"/></div>
     <div onclick="signModalShow()" class="signin-btn">Sign in</div>

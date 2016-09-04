@@ -39,7 +39,7 @@ public class DeleteCellVisitingAction extends ActionSupport implements SessionAw
     @Override
     public String execute() {
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
-            if (userSession.get("position").equals("Администратор") ||
+            if (userSession.get("position").equals("Administrator") ||
                     userSession.get("position").equals("Менеджер")) {
                 answer = ServiceUtil.getDeleteService().tryDelete(data, userSession, CellVisiting.class);
                 return SUCCESS;

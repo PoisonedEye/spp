@@ -39,7 +39,7 @@ public class CreateProductTypeAction extends ActionSupport implements SessionAwa
     @Override
     public String execute() {
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
-            if (userSession.get("position").equals("Администратор") ||
+            if (userSession.get("position").equals("Administrator") ||
                     userSession.get("position").equals("Менеджер")) {
                 answer = ServiceUtil.getCreateService().tryCreateProductType(data, userSession);
                 return SUCCESS;

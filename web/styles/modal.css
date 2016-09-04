@@ -1,0 +1,46 @@
+.hider{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:black;
+    opacity:0.5;
+    width:100vw;
+    height:100vh;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    width:50%;
+    top:25%;
+    left:25%;
+    background-color:rgb(147,124,116);
+    color:white;
+    text-align:center;
+    padding-top:5px;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.modal label{
+    display:block;
+    font-size:20px;
+    margin-bottom:4px;
+}
+
+.modal input{
+    border-radius:3px;
+    border:solid 1px;
+    font-size:15px;
+    min-width:50%;
+    margin-bottom:10px;
+    padding:5px;
+}
+
+.modal .message{
+    white-space: pre-line;
+    font-size:20px;
+    margin-bottom:4px;
+    text-align: center;
+}

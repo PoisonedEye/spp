@@ -139,6 +139,22 @@ public class ParsingService {
         }
     }
     //CELL
+    public static CellType getCellType(String cellType, Session session){
+        try {
+            int id = Integer.parseInt(cellType);
+            if (id <= 0)
+                throw new ClassCastException("Cell type must be a positive number.");
+            Object type = session.createCriteria(CellType.class).add(Restrictions.eq("id", id)).uniqueResult();
+            if (type == null){
+                throw new ClassCastException("Cell type with id " + id + " doesn't exist.");
+            }
+            return (CellType)type;
+        }
+        catch (NumberFormatException ex){
+            throw new ClassCastException("Cell type must be a number.");
+        }
+
+    }
     public static String getCellNumber(String number){
         String error = "Номер не соответствует формату (например 1-A-10).";
         if (number.length() < 5)

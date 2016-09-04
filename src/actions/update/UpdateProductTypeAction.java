@@ -38,7 +38,7 @@ public class UpdateProductTypeAction extends ActionSupport implements SessionAwa
     @Override
     public String execute() {
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
-            if (userSession.get("position").equals("Администратор") ||
+            if (userSession.get("position").equals("Administrator") ||
                     userSession.get("position").equals("Менеджер")) {
                 answer = ServiceUtil.getUpdateService().tryUpdateProductType(data, userSession);
                 return SUCCESS;

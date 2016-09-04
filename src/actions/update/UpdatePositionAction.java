@@ -38,7 +38,7 @@ public class UpdatePositionAction extends ActionSupport implements SessionAware 
     @Override
     public String execute() {
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
-            if (userSession.get("position").equals("Администратор")){
+            if (userSession.get("position").equals("Administrator")){
                 answer = ServiceUtil.getUpdateService().tryUpdatePosition(data, userSession);
                 return SUCCESS;
             }

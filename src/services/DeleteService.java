@@ -33,7 +33,7 @@ public class DeleteService {
         return "Пользователь успешно удален.";
     }
     public String tryDelete(JsonBase json, Map<String, Object> session, Class type){
-        if (!session.get("position").equals("Администратор"))
+        if (!session.get("position").equals("Administrator"))
             return "Для удаления записи обратитесь к администратору.";
         int id = Integer.parseInt(json.getId());
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();

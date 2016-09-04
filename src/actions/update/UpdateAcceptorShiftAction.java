@@ -38,7 +38,7 @@ public class UpdateAcceptorShiftAction extends ActionSupport implements SessionA
     @Override
     public String execute() {
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
-            if (userSession.get("position").equals("Администратор") ||
+            if (userSession.get("position").equals("Administrator") ||
                     userSession.get("position").equals("Менеджер")) {
                 answer = ServiceUtil.getUpdateService().tryUpdateAcceptorShift(data, userSession);
                 return SUCCESS;

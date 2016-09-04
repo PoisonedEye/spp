@@ -38,7 +38,7 @@ public class UpdateAddressAction extends ActionSupport implements SessionAware {
     @Override
     public String execute() {
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
-            if (userSession.get("position").equals("Администратор") ||
+            if (userSession.get("position").equals("Administrator") ||
                     userSession.get("position").equals("Менеджер")) {
                 answer = ServiceUtil.getUpdateService().tryUpdateAddress(data, userSession);
                 return SUCCESS;

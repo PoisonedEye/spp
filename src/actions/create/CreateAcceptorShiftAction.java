@@ -38,7 +38,7 @@ public class CreateAcceptorShiftAction extends ActionSupport implements SessionA
     @Override
     public String execute() {
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
-            if (userSession.get("position").equals("Администратор") ||
+            if (userSession.get("position").equals("Administrator") ||
                     userSession.get("position").equals("Менеджер")) {
                 answer = ServiceUtil.getCreateService().tryCreateAcceptorShift(data, userSession);
                 return SUCCESS;

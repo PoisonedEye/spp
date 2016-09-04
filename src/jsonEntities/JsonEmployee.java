@@ -8,7 +8,7 @@ public class JsonEmployee extends JsonBase{
     String position;
     Boolean fired;
     String login;
-    String newPassword;
+    String password;
 
     public String getTin() {
         return tin;
@@ -52,10 +52,10 @@ public class JsonEmployee extends JsonBase{
     public void setLogin(String login) {
         this.login = login;
     }
-    public String getNewPassword() {
-        return newPassword;
+    public String getPassword() {
+        return password;
     }
-    public void setNewPassword(String newPassword) {
-        this.newPassword = newPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

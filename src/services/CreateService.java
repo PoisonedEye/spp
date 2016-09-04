@@ -18,10 +18,10 @@ public class CreateService {
             employee.setPhoneNumber(ParsingService.getEmployeePhoneNumber(json.getPhoneNumber()));
             employee.setTin(ParsingService.getEmployeeTin(json.getTin()));
             employee.setLogin(ParsingService.getEmployeeLogin(json.getLogin(), dbSession));
-            if (json.getNewPassword() == null) {
+            if (json.getPassword() == null) {
                 return "Пароль не может быть пустым";
             }
-            employee.setPassword(json.getNewPassword());
+            employee.setPassword(json.getPassword());
             Position position = (Position)ParsingService.getById(json.getPosition(), dbSession,Position.class);
             employee.setPosition(position);
             if (employee.getPosition().getName().equals("Администратор") ^ position.getName().equals("Администратор")) {
@@ -89,6 +89,7 @@ public class CreateService {
         Transaction tx = dbSession.beginTransaction();
         Cell cell = new Cell();
         try {
+            cell.setCellType(ParsingService.getCellType(json.getCellType(),dbSession));
             cell.setNumber(ParsingService.getCellNumber(json.getNumber()));
             cell.setCellType((CellType) ParsingService.getById(json.getCellType(),dbSession,CellType.class));
             cell.setX(ParsingService.getCoordinate(json.getX()));

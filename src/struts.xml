@@ -67,45 +67,45 @@
             </result>
         </action>
         <!-- GET DATA -->
-        <action name="dataEmployees" class="actions.GetDataAction" method="dataEmployees">
+        <action name="dataEmployee" class="actions.GetDataAction" method="dataEmployees">
             <result type="json"/>
         </action>
-        <action name="dataPositions" class="actions.GetDataAction" method="dataPositions">
+        <action name="dataPosition" class="actions.GetDataAction" method="dataPositions">
             <result type="json"/>
         </action>
-        <action name="dataAddresses" class="actions.GetDataAction" method="dataAddresses">
+        <action name="dataAddress" class="actions.GetDataAction" method="dataAddresses">
             <result type="json"/>
         </action>
-        <action name="dataAcceptorShifts" class="actions.GetDataAction" method="dataAcceptorShifts">
+        <action name="dataAcceptorShift" class="actions.GetDataAction" method="dataAcceptorShifts">
             <result type="json"/>
         </action>
-        <action name="dataCells" class="actions.GetDataAction" method="dataCells">
+        <action name="dataCell" class="actions.GetDataAction" method="dataCells">
             <result type="json"/>
         </action>
-        <action name="dataCellTypes" class="actions.GetDataAction" method="dataCellTypes">
+        <action name="dataCellType" class="actions.GetDataAction" method="dataCellTypes">
             <result type="json"/>
         </action>
-        <action name="dataCellVisitings" class="actions.GetDataAction" method="dataCellVisitings">
+        <action name="dataCellVisiting" class="actions.GetDataAction" method="dataCellVisitings">
             <result type="json"/>
         </action>
-        <action name="dataCompanies" class="actions.GetDataAction" method="dataCompanies">
+        <action name="dataCompany" class="actions.GetDataAction" method="dataCompanies">
             <result type="json"/>
         </action>
-        <action name="dataProducts" class="actions.GetDataAction" method="dataProducts">
+        <action name="dataProduct" class="actions.GetDataAction" method="dataProducts">
             <result type="json"/>
         </action>
-        <action name="dataProductTypes" class="actions.GetDataAction" method="dataProductTypes">
+        <action name="dataProductType" class="actions.GetDataAction" method="dataProductTypes">
             <result type="json"/>
         </action>
-        <action name="dataRecievings" class="actions.GetDataAction" method="dataRecievings">
+        <action name="dataReceiving" class="actions.GetDataAction" method="dataRecievings">
             <result type="json"/>
         </action><action name="dataTransfers" class="actions.GetDataAction" method="dataTransfers">
             <result type="json"/>
         </action>
-        <action name="dataUnitSets" class="actions.GetDataAction" method="dataUnitSets">
+        <action name="dataUnitSet" class="actions.GetDataAction" method="dataUnitSets">
             <result type="json"/>
         </action>
-        <action name="dataAcceptors" class="actions.GetDataAction" method="dataAcceptors">
+        <action name="dataAcceptor" class="actions.GetDataAction" method="dataAcceptors">
             <result type="json"/>
         </action>
 

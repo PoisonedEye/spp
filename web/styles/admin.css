@@ -136,3 +136,12 @@
 .admin-table tr td:last-child {
     border-right: none;
 }
+
+.admin-table tr td input{
+    width: 100%;
+}
+
+.admin-table tr.deleted{
+    background-color: #840000;
+}
+
