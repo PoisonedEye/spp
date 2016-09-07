@@ -36,7 +36,7 @@
 			<button class="action-btn" id="cancel-btn">Cancel</button>
 			<button class="action-btn" id="add-btn">Add</button>
 		</div>
-		<table class="admin-table tablesorter" id="admin-table">
+		<table class="admin-table" id="admin-table">
 		</table>
     </div>	
 </div>
