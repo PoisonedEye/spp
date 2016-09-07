@@ -44,7 +44,7 @@ public class CreateAcceptorShiftAction extends ActionSupport implements SessionA
                 return SUCCESS;
             }
         }
-        answer = "Нет доступа.";
+        answer = "Access denied.";
         return SUCCESS;
     }
 }

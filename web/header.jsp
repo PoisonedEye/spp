@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-
+<script type="application/javascript" src="js/header.js"></script>
 <header>
     <div class="user-name"><s:property value="fullName"/></div>
-    <div onclick="signModalShow()" class="signin-btn">Sign in</div>
+    <s:if test="isLogined()">
+        <div onclick="signOut()" class="signin-btn">Sign Out</div>
+    </s:if>
+    <s:if test="!isLogined()">
+        <div onclick="modalShow()" class="signin-btn">Sign In</div>
+    </s:if>
 </header>
-<div class="hider"></div>
-<form class="signin-modal">
-    <div class="title">Sign in</div>
-    <div onclick="signModalHide()" class="close">x</div>
-    <br />
-    <label for="login">Login</label>
-    <input id="login"/>
-    <label for="password">Password</label>
-    <input id="password"/>
-    <div class="submit" onclick="login()">Submit</div>
-</form>
+<s:include value="modal-signin.jsp"/>

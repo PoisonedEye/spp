@@ -19,13 +19,13 @@ public class CreateService {
             employee.setTin(ParsingService.getEmployeeTin(json.getTin()));
             employee.setLogin(ParsingService.getEmployeeLogin(json.getLogin(), dbSession));
             if (json.getPassword() == null) {
-                return "Пароль не может быть пустым";
+                return "Password can't be empty.";
             }
             employee.setPassword(json.getPassword());
             Position position = (Position)ParsingService.getById(json.getPosition(), dbSession,Position.class);
             employee.setPosition(position);
-            if (employee.getPosition().getName().equals("Администратор") ^ position.getName().equals("Администратор")) {
-                return "Назначение и снятие должности 'Администратор' доступно только самим администраторам.";
+            if (employee.getPosition().getName().equals("Administrator") ^ position.getName().equals("Administrator")) {
+                return "Appointment and removal of positions 'Administrator' available only by administrators.";
             }
         } catch (ClassCastException ex) {
             return ex.getMessage();

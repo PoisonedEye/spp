@@ -7,9 +7,6 @@ import util.ServiceUtil;
 
 import java.util.Map;
 
-/**
- * Created by konst on 4/25/2016.
- */
 public class DeleteEmployeeAction extends ActionSupport implements SessionAware {
     Map<String, Object> userSession;
 
@@ -47,7 +44,7 @@ public class DeleteEmployeeAction extends ActionSupport implements SessionAware 
                 return SUCCESS;
             }
         }
-        answer = "Нет доступа.";
+        answer = "Access denied.";
         return SUCCESS;
     }
 

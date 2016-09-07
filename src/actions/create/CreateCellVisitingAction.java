@@ -45,7 +45,7 @@ public class CreateCellVisitingAction extends ActionSupport implements SessionAw
                 return SUCCESS;
             }
         }
-        answer = "Нет доступа.";
+        answer = "Access denied.";
         return SUCCESS;
     }
 }

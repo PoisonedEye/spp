@@ -45,7 +45,7 @@ public class DeleteCellVisitingAction extends ActionSupport implements SessionAw
                 return SUCCESS;
             }
         }
-        answer = "Нет доступа.";
+        answer = "Access denied.";
         return SUCCESS;
     }
 }

@@ -27,7 +27,7 @@ public class RedirectAction extends ActionSupport implements SessionAware {
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
             return (String) userSession.get("fullName");
         }
-        return "Greetings!";
+        return "Company name";
     }
 
     public void setFullName(String fullName) {

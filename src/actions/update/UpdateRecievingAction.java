@@ -44,7 +44,7 @@ public class UpdateRecievingAction extends ActionSupport implements SessionAware
                 return SUCCESS;
             }
         }
-        answer = "Нет доступа.";
+        answer = "Access denied.";
         return SUCCESS;
     }
 }

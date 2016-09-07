@@ -2,6 +2,7 @@ package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
+import services.LoginService;
 import util.ServiceUtil;
 
 import java.util.Map;
@@ -36,5 +37,10 @@ public class BaseAction extends ActionSupport implements SessionAware {
 
     public void setSession(Map<String, Object> session) {
         userSession = session;
+    }
+
+    public boolean isLogined(){
+        LoginService loginService = ServiceUtil.getLoginService();
+        return loginService.isLogined(userSession);
     }
 }

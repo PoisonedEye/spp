@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
     <script type="text/javascript" src="js/libraries/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/home.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/helpers/sha.js"></script>
     <title>Home</title>
 </head>
@@ -15,18 +14,10 @@
     <div class="nav-column">
         <nav>
             <ul>
-                <li>
-                    Navigation 1
-                </li>
-                <li>
-                    Navigation 2
-                </li>
-                <li>
-                    Navigation 3
-                </li>
-                <li>
-                    Navigation 4
-                </li>
+                <li><a href="#">Navigation 1</a></li>
+                <li><a href="#">Navigation 2</a></li>
+                <li><a href="#">Navigation 3</a></li>
+                <li><a href="#">Navigation 4</a></li>
             </ul>
         </nav>
     </div>

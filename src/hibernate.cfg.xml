@@ -49,6 +49,7 @@
         <mapping class="entities.ProductType"/>
         <mapping class="entities.Recieving"/>
         <mapping class="entities.Transfer"/>
+        <mapping class="entities.Task"/>
         <mapping class="entities.UnitSet"/>
     </session-factory>
 

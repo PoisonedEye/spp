@@ -44,7 +44,7 @@ public class UpdateProductTypeAction extends ActionSupport implements SessionAwa
                 return SUCCESS;
             }
         }
-        answer = "Нет доступа.";
+        answer = "Access denied.";
         return SUCCESS;
     }
 }

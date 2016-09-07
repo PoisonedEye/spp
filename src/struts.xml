@@ -11,9 +11,6 @@
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 
-
-
-
     <package name="json-default" extends="struts-default">
         <result-types>
             <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
@@ -394,24 +391,19 @@
             <result name="Administrator" type="chain">admin</result>
         </action>
         <action name="home" class="actions.HomeAction">
-            <result>
-                /home.jsp
-            </result>
+            <result>/home.jsp</result>
         </action>
         <action name="admin" class="actions.AdminAction">
-            <result>
-                /admin.jsp
-            </result>
+            <result name="success">/admin.jsp</result>
+            <result name="denied" type="chain">redirect</result>
         </action>
         <action name="new-receiving" class="actions.NewReceivingAction">
-            <result>
-                /new-receiving.jsp
-            </result>
+            <result name="success">/new-receiving.jsp</result>
+            <result name="denied" type="chain">redirect</result>
         </action>
         <action name="new-transfer" class="actions.NewTransferAction">
-            <result>
-                /new-transfer.jsp
-            </result>
+            <result name="success">/new-transfer.jsp</result>
+            <result name="denied" type="chain">redirect</result>
         </action>
     </package>
 

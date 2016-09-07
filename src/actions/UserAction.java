@@ -41,8 +41,8 @@ public class UserAction extends ActionSupport implements SessionAware {
             position = (String) userSession.get("position");
             return SUCCESS;
         }
-        fullName = "Аноним";
-        position = "Гость";
+        fullName = "Guest";
+        position = "Guest";
         return SUCCESS;
     }
 
@@ -51,7 +51,7 @@ public class UserAction extends ActionSupport implements SessionAware {
             position = (String) userSession.get("position");
             return SUCCESS;
         }
-        position = "Гость";
+        position = "Guest";
         return SUCCESS;
     }
 

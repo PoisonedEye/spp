@@ -6,20 +6,18 @@ import java.util.Map;
 
 public class LoginService {
 
-    public boolean Login(String login, String password, Map<String, Object> session) {
+    public String Login(String login, String password, Map<String, Object> session) {
         Object isLogined = session.get("logined");
         if (isLogined != null)
             if ((Boolean) isLogined) {
-                session.put("loginFailedMessage", "Вход в систему уже выполнен.");
-                return false;
+                return "Вход в систему уже выполнен.";
             }
         // try to get employee with selected login
         Employee employee = ServiceUtil.getEmployeeService().getEmployeeByLogin(login);
 
         // no user with this login
         if (employee == null) {
-            session.put("loginFailedMessage", "Такой логин не существует.");
-            return false;
+            return "Incorrect username or password";
         }
         // password is ok
         if (employee.getPassword().equals(password)) {
@@ -27,12 +25,10 @@ public class LoginService {
             session.put("fullName", employee.getFullName());
             session.put("position", employee.getPosition().getName());
             session.put("id", employee.getId());
-            session.put("loginFailedMessage", "Вход прошел успешно. Для устранения неполадок обратитесь к администратору.");
-            return true;
+            return "true";
         }
         // password is invalid
-        session.put("loginFailedMessage", "Неверный пароль.");
-        return false;
+        return "Incorrect username or password";
     }
 
     public boolean isLogined(Map<String, Object> session) {
@@ -43,14 +39,14 @@ public class LoginService {
         return false;
     }
 
-    public boolean Logout(Map<String, Object> session) {
+    public String Logout(Map<String, Object> session) {
         Object isLogined = session.get("logined");
         if (isLogined != null)
             if ((Boolean) isLogined) {
                 session.put("logined", false);
-                return true;
+                return "true";
             }
-        return false;
+        return "Not logined.";
     }
 
 }

@@ -93,7 +93,7 @@ nav ul li a:visited{
 }
 
 
-@media screen and (max-width:1000px){
+@media screen and (max-width:1200px){
     .nav-column{
         width:auto;
         float:none;
@@ -270,6 +270,7 @@ nav ul li a:visited{
     border:solid 1px;
     font-size:15px;
     min-width:50%;
+    max-width:100%;
     margin-bottom:10px;
     padding:5px;
 }

@@ -3,6 +3,7 @@ $(function(){
     var currentTable = "Employee";
     var template = {};
     var addCounter = 0;
+    var deletions = [];
 
     $(".dropdown-content *").on("click",function(){
         var tableName = $(this).attr("data-table");
@@ -46,6 +47,10 @@ $(function(){
                             row.append(cell);
                         }
                     }
+                    var $dltBtn = $("<button>");
+                    $dltBtn.text("Delete");
+                    $dltBtn.addClass("btn");
+                    row.append($("<td>").append($dltBtn));
                     $tbody.append(row);
                 });
                 bind();
@@ -63,7 +68,9 @@ $(function(){
         $("td").on("click", function(){
             var $this = $(this);
             if ($this.attr("data-clicked") != "true"){
-                if ($this.parent().children()[0] != $this[0]){
+                var first = $this.parent().find("td:first-child");
+                var last = $this.parent().find("td:last-child");
+                if (first[0] != $this[0] && last[0] != $this[0]){
                     var value = $this.text();
                     $this.text("");
                     $this.attr("data-clicked","true");
@@ -73,6 +80,19 @@ $(function(){
                     $this.append(input);
                 }
             }
+        });
+        $(".btn").on("click",function(){
+            var $this = $(this);
+            var row = $this.parent().parent();
+            var id = $(row.children()[0]).text();
+            var message = "Delete the entity with id" + id + "? You can abort deleting by pressing 'Cancel' button.";
+
+            dialog(message,"Delete","Delete",function(){
+                deletions.push(id);
+                row.remove();
+                modalHide();
+            })
+
         });
     }
 
@@ -85,15 +105,47 @@ $(function(){
         //save names of table fields
         var propertyArr = [];
         propertyArr[0] = "id";
-        var i = 1;
+        i = 1;
         for (var field in template){
             if (field != "id"){
                 propertyArr[i++] = field;
             }
         }
-        var count = rows.length;
+        var count = rows.length + deletions.length;
         var counter = 0;
         var resultMessage = "";
+
+        for (var i = 0; i < deletions.length; i++){
+            function a() {
+                var id = deletions[i];
+                $.ajax({
+                    url: "delete" + currentTable,
+                    data: "{\"data\":" + JSON.stringify({id: id}) + "}",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    type: 'POST',
+                    async: true,
+                    success: function (result) {
+                        resultMessage = resultMessage + ("Id " + id + ": " + result.answer + "\r\n");
+                        counter++;
+                        if (count == counter) {
+                            message(resultMessage, "Save");
+                            loadTable(currentTable);
+                        }
+                    },
+                    error: function () {
+                        resultMessage += "Id " + id + ": Can't delete, unknown error.\r\n";
+                        counter++;
+                        if (count == counter){
+                            message(resultMessage, "Save");
+                            loadTable(currentTable);
+                        }
+                    }
+                });
+            }
+            a();
+        }
+        deletions = [];
         rows.each(function(){
             var $this = $(this);
             var entity = {};
@@ -120,7 +172,7 @@ $(function(){
                 var method = "create";
             }
             else{
-                var method = "update";
+                method = "update";
             }
             $.ajax({
                 url: method  + currentTable,
@@ -138,7 +190,7 @@ $(function(){
                     }
                 },
                 error:function(){
-                    resultMessage += "Id " + entity.id + ":" + "Can't" + method + ", unknown error.\r\n";
+                    resultMessage += "Id " + entity.id + ":" + "Can't " + method + ", unknown error.\r\n";
                     counter++;
                     if (count == counter){
                         message(resultMessage, "Update");
@@ -164,11 +216,6 @@ $(function(){
             }
         }
         $table.find("tbody").prepend($row);
-    });
-
-    $("#delete-btn").on("click", function(){
-        var $row = $(this).parent().parent();
-        $row.toggleClass("deleted");
     });
 });
 

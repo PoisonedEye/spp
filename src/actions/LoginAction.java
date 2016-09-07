@@ -34,15 +34,15 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
     private String password;
 
-    public Boolean getAnswer() {
+    public String getAnswer() {
         return answer;
     }
 
-    public void setAnswer(Boolean answer) {
+    public void setAnswer(String answer) {
         this.answer = answer;
     }
 
-    private Boolean answer;
+    private String answer;
 
     public String tryLogin() {
         LoginService loginService = ServiceUtil.getLoginService();

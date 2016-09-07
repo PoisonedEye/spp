@@ -32,7 +32,7 @@ public class FailedLoginAction extends ActionSupport implements SessionAware {
         if (message != null)
             failedLoginMessage = (String) message;
         else
-            failedLoginMessage = "Не было попыток входа.";
+            failedLoginMessage = "Internal error.";
         return SUCCESS;
     }
 }
