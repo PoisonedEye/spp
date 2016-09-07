@@ -17,26 +17,26 @@ function availableProductStorage() {
                 }
             }
             else {
-                var row = $(`.product-selected-table .product-row[data-id='${id}']`);
+                row = $(".product-selected-table .product-row[data-id='"+id+"']");
             }
             if (count <= available[id].count - moved[id]) {
                 moved[id] += count;
                 $(row.children()[2]).text(moved[id]);
                 if (available[id].count == moved[id]) {
-                    $(`.product-available-table .product-row[data-id='${id}']`).remove();
+                    $(".product-available-table .product-row[data-id='"+id+"']").remove();
                 }
                 else {
-                    $($(`.product-available-table .product-row[data-id='${id}']`)
-                    .children()[2]).text(available[id].count - moved[id]);
+                    $($(".product-available-table .product-row[data-id='"+id+"']")
+                        .children()[2]).text(available[id].count - moved[id]);
                 }
             }
         }
     }
 
     this.remove = function (id) {
-        var row = $(`.product-selected-table .product-row[data-id='${id}']`);
+        var row = $(".product-selected-table .product-row[data-id='"+id+"']");
         var count = $(row.children()[2]).text();
-        var aRow = $(`.product-available-table .product-row[data-id='${id}']`);
+        var aRow = $(".product-available-table .product-row[data-id='"+id+"']");
         if (aRow.length == 0) {
             aRow = $(".product-available-table .product-row.for-copy").clone(true);
             aRow.removeClass("for-copy");

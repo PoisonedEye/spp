@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="content">
+    <s:include value="modal-hider.jsp"/>
     <s:include value="header.jsp"/>
     <div class="nav-column">
         <nav>

@@ -389,6 +389,8 @@
             <result name="Guest" type="chain">home</result>
             <result name="Storekeeper" type="chain">new-receiving</result>
             <result name="Administrator" type="chain">admin</result>
+            <result name="Acceptor" type="chain">tasks</result>
+            <result name="Manager" type="chain">manager</result>
         </action>
         <action name="home" class="actions.HomeAction">
             <result>/home.jsp</result>
@@ -403,6 +405,18 @@
         </action>
         <action name="new-transfer" class="actions.NewTransferAction">
             <result name="success">/new-transfer.jsp</result>
+            <result name="denied" type="chain">redirect</result>
+        </action>
+        <action name="tasks" class="actions.TasksAction">
+            <result name="success">/acceptor_tasks.jsp</result>
+            <result name="denied" type="chain">redirect</result>
+        </action>
+        <action name="routes" class="actions.RoutesAction">
+            <result name="success">/acceptor_routes.jsp</result>
+            <result name="denied" type="chain">redirect</result>
+        </action>
+        <action name="manager" class="actions.ManagerAction">
+            <result name="success">/manager.jsp</result>
             <result name="denied" type="chain">redirect</result>
         </action>
     </package>

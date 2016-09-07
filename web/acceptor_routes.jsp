@@ -1,23 +1,16 @@
-﻿<html>
+﻿<%@taglib prefix="s" uri="/struts-tags" %>
+<%@page contentType="text/html; charset=UTF-8" %>
+<html>
 <head>
-    <link rel="stylesheet" type="text/css" href="styles/acceptor_status.css" />
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
-    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/acceptor.css" />
+    <script type="text/javascript" src="js/libraries/jquery-3.1.0.min.js"></script>
 </head>
 <body>
 <div class="content">
-    <header>
-        <div class="user-name">Username</div>
-        <div onclick="signModalShow()" class="signin-btn">Sign in</div>
-    </header>
-    <div class="nav-column">
-        <nav>
-            <ul>
-                <li><a href="#">Tasks</a></li>
-                <li><a href="#">Routes</a></li>
-            </ul>
-        </nav>
-    </div>
+    <s:include value="modal-hider.jsp"/>
+    <s:include value="header.jsp"/>
+    <s:include value="acceptor-nav.jsp"/>
     <div class="main-column">
         <div class="block">
             <div class="input-block">
@@ -63,24 +56,7 @@
             </div>
         </div>
     </div>
-        
 </div>
-
-<footer>
-    Phone number: +1 111 111 111<br/>
-    Company Name 2016 @ all rights reserved.
-</footer>
-
-<div class="hider"></div>
-<form class="signin-modal">
-    <div class="title">Sign in</div>
-    <div onclick="signModalHide()" class="close">x</div>
-    <br />
-    <label for="login">Login</label>
-    <input id="login"/>
-    <label for="password">Password</label>
-    <input id="password"/>
-    <div class="submit" onclick="login()">Submit</div>
-</form>
+<s:include value="footer.jsp"/>
 </body>
 </html>

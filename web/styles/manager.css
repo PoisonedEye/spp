@@ -1,0 +1,52 @@
+.report-block{
+	text-align:left;
+    font-size:30px;
+    margin-bottom:30px;
+    text-wrap:normal;
+    width:100%;
+}
+
+.report-info{
+    min-width:440px;
+    max-width:1840px;
+    font-size:20px;
+    color:rgb(5,3,6);	
+    background-color:rgb(226,233,224);
+    overflow:hidden;
+	border-radius:10px;	
+}
+
+.report-text{
+    float:left;
+    width:calc(80% - 40px);
+    padding:20px;
+}
+
+.report-name{
+    padding:5px;
+}
+
+.report-img{
+    float:left;
+    width:20%;
+}
+
+.button-line{
+    overflow:hidden;
+    background-color:rgb(147,124,116);
+}
+
+.generate-btn {
+    font-size: 15px;
+    padding: 10px 20px 10px 20px;
+    text-align: left;
+    background-color: #00ffff;
+    float: left;
+    background-color: antiquewhite;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+}
+
+.generate-btn:hover{	
+    background-color:#c2dbeb;
+}

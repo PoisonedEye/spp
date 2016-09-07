@@ -41,6 +41,7 @@
     </div>	
 </div>
 <s:include value="footer.jsp"/>
+<s:include value="modal-hider.jsp"/>
 <s:include value="modal-message.jsp"/>
 <s:include value="modal-dialog.jsp"/>
 </body>

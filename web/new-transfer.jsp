@@ -12,6 +12,7 @@
 </head>
 <body>
     <div class="content">
+        <s:include value="modal-hider.jsp"/>
         <s:include value="header.jsp"/>
         <s:include value="storekeeper-nav.jsp"/>
         <div class="main-column-wide">
