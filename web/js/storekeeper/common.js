@@ -7,7 +7,7 @@ function toggleProducts() {
     $(".product-zone").toggle(200);
 }
 
-$(function () {
+function bind() {
     $(".acceptor-row").on("click", function () {
         var $this = $(this);
         if (!$this.hasClass("busy")) {
@@ -21,4 +21,4 @@ $(function () {
             }
         }
     });
-})
+}

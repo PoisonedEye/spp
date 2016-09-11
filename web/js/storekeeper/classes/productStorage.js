@@ -1,4 +1,4 @@
-function productStorage() {
+function ProductStorage() {
     var counter = 0;
     var storage = [];
     var existStorage = [];
@@ -115,4 +115,9 @@ function productStorage() {
         $("#count-edit").val(note.count);
         delete storage[storageId];
     }
+
+    this.getStorage = function(){
+        return storage;
+    }
+
 }

@@ -1,5 +1,5 @@
 $(function () {
-    var aStorage = new availableProductStorage();
+    var aStorage = new AvailableProductStorage();
     aStorage.init();
 
     $(".move-btn").on("click", function () {

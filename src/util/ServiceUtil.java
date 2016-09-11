@@ -40,4 +40,10 @@ public class ServiceUtil {
     public static CreateService getCreateService() {
         return createService;
     }
+
+    private static StorekeeperService storekeeperService = new StorekeeperService();
+
+    public static StorekeeperService getStorekeeperService() {
+        return storekeeperService;
+    }
 }

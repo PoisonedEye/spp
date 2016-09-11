@@ -42,6 +42,7 @@ public class UpdateService {
             return ex.getMessage();
         }
         employee.setFired(json.getFired());
+        employee.setBusy(json.getBusy());
         tx.commit();
         return "Успешно обновлено.";
     }

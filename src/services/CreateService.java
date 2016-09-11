@@ -5,6 +5,8 @@ import jsonEntities.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
+
+import java.util.List;
 import java.util.Map;
 
 public class CreateService {
@@ -33,6 +35,7 @@ public class CreateService {
 
 
         employee.setFired(json.getFired());
+        employee.setBusy(json.getBusy());
         dbSession.save(employee);
         tx.commit();
         return "Сотрудник успешно добавлен.";
@@ -193,6 +196,29 @@ public class CreateService {
             return ex.getMessage();
         }
         dbSession.save(productType);
+        tx.commit();
+        return "Вид товара успешно добавлен.";
+    }
+    public String tryCreateProductTypeWithId(JsonProductType json, Map<String, Object> session, List<Integer> ids){
+        Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = dbSession.beginTransaction();
+        ProductType productType = new ProductType();
+        try {
+            productType.setFullModelName(ParsingService.getString(json.getFullModelName(),"Название модели", 64));
+            productType.setBarcode(ParsingService.getBarcode(json.getBarcode()));
+            productType.setModel(ParsingService.getString(json.getModel(),"Модель",64));
+            productType.setPackHeight(ParsingService.getValue(json.getPackHeight()));
+            productType.setPackLength(ParsingService.getValue(json.getPackLength()));
+            productType.setPackWidth(ParsingService.getValue(json.getPackWidth()));
+            productType.setProducer(ParsingService.getString(json.getProducer(),"Производитель",64));
+            int id = Integer.parseInt(json.getUnitSet());
+            productType.setUnitSet((UnitSet) DataService.getById(UnitSet.class,id,dbSession));
+            productType.setWeight(ParsingService.getValue(json.getWeight()));
+        } catch (ClassCastException ex) {
+            return ex.getMessage();
+        }
+        dbSession.save(productType);
+        ids.add(productType.getId());
         tx.commit();
         return "Вид товара успешно добавлен.";
     }

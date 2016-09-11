@@ -25,10 +25,6 @@
                     <div class="btn" onclick="toggleProducts()">Products</div>
                 </div>
                 <div class="acceptor-table">
-                    <div class="acceptor-row">
-                        <div class="acceptor-name">Semen semenovich</div>
-                        <div class="acceptor-status">free</div>
-                    </div>                  
                 </div>
                 <div class="product-zone">
                     <form class="product-edit">
@@ -102,7 +98,6 @@
                 Begin recieving
             </div>        
         </div>
-
     </div>
     <footer>
         Phone number: +1 111 111 111<br />

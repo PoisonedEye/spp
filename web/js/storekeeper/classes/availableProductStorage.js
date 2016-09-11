@@ -1,4 +1,4 @@
-function availableProductStorage() {
+function AvailableProductStorage() {
     var available = [];
     var moved = [];
     var idCounter = 1;

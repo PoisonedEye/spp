@@ -9,6 +9,7 @@ public class JsonEmployee extends JsonBase{
     Boolean fired;
     String login;
     String password;
+    Boolean busy;
 
     public String getTin() {
         return tin;
@@ -57,5 +58,11 @@ public class JsonEmployee extends JsonBase{
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public Boolean getBusy() {
+        return busy;
+    }
+    public void setBusy(Boolean busy) {
+        this.busy = busy;
     }
 }

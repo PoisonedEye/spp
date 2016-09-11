@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="struts2-json-plugin-2.3.28">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/struts2-json-plugin-2.1.8.1.jar" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/struts2-json-plugin-2.1.8.1.jar" recursive="false" />
+  </library>
+</component>

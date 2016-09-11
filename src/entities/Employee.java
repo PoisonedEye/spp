@@ -26,6 +26,8 @@ public class Employee {
     String login;
     @Column(length = 32)
     String password;
+    @Column
+    Boolean busy;
 
     public Long getTin() {
         return tin;
@@ -84,4 +86,11 @@ public class Employee {
     public void setTin(Long tin) {
         this.tin = tin;
     }
+    public Boolean getBusy() {
+        return busy;
+    }
+    public void setBusy(Boolean busy) {
+        this.busy = busy;
+    }
+
 }
