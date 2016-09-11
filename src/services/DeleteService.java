@@ -12,42 +12,42 @@ import java.util.Map;
 
 public class DeleteService {
     public String tryDeleteEmployee(JsonEmployee json, Map<String, Object> session) {
-        if (!session.get("position").equals("Администратор")) {
-            return "Для удаления записи обратитесь к администратору.";
+        if (!session.get("position").equals("Administrator")) {
+            return "To delete record, contact the administrator.";
         }
         int targetId = Integer.parseInt(json.getId());
         if (session.get("id").equals(targetId))
-            return "Нельзя удалить самого себя:)";
+            return "You can not remove yourself :)";
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = dbSession.beginTransaction();
         Criteria criteria = dbSession.createCriteria(Employee.class).add(Restrictions.eq("id", targetId));
         Employee employee = (Employee) criteria.uniqueResult();
         if (employee == null)
-            return "Этот пользователь уже удален.";
+            return "This user has deleted.";
         dbSession.delete(employee);
         try {
             tx.commit();
         } catch (ConstraintViolationException ex) {
-            return "Пользователь не может быть удален, т.к. в используется в других сущностях базы данных.";
+            return "The user can not be removed, because it is used in other database entities.";
         }
-        return "Пользователь успешно удален.";
+        return "User successfully deleted.";
     }
     public String tryDelete(JsonBase json, Map<String, Object> session, Class type){
         if (!session.get("position").equals("Administrator"))
-            return "Для удаления записи обратитесь к администратору.";
+            return "To delete record, contact the administrator.";
         int id = Integer.parseInt(json.getId());
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = dbSession.beginTransaction();
         Criteria criteria = dbSession.createCriteria(type).add(Restrictions.eq("id", id));
         Object entity = criteria.uniqueResult();
         if (entity == null)
-            return "Эта запись уже удалена.";
+            return "This entry has been removed.";
         dbSession.delete(entity);
         try {
             tx.commit();
         } catch (ConstraintViolationException ex) {
-            return "Запись не может быть удалена, т.к. в используется в других сущностях базы данных.";
+            return "Record can not be removed, because it is used in other database entities.";
         }
-        return "Запись успешно удалена.";
+        return "Record deleted successfully.";
     }
 }

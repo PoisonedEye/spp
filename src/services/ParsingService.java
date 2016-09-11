@@ -14,9 +14,9 @@ public class ParsingService {
     //ALL
     public static String getString(String string, String name, int maxSize) {
         if (string.length() == 0)
-            throw new ClassCastException(name+"не может быть пустым.");
+            throw new ClassCastException(name+"can't be empty.");
         if (string.length() > maxSize)
-            throw new ClassCastException(name+" не может содержать больше"+maxSize+"символов.");
+            throw new ClassCastException(name+" doesn't may contain more than "+maxSize+"symbols.");
         return string;
     }
     public static String getTime(String time){
@@ -26,7 +26,7 @@ public class ParsingService {
             sdf.parse(time);
         } catch (ParseException e) {
             throw new ClassCastException(
-                    "Время должно быть допустимым и должно соответствовать формату yyyy-MM-dd HH:mm:ss.");
+                    "Time must be valid and must follow the format yyyy-MM-dd HH:mm:ss.");
         }
         return time;
     }
@@ -40,7 +40,7 @@ public class ParsingService {
                 throw new ClassCastException(error);
         } catch (ParseException e) {
             throw new ClassCastException(
-                    "Время должно быть допустимым и должно соответствовать формату yyyy-MM-dd HH:mm:ss.");
+                    "Time must be valid and must follow the format yyyy-MM-dd HH:mm:ss.");
         }
         return lastTime;
     }
@@ -49,7 +49,7 @@ public class ParsingService {
         try{
             i = Integer.parseInt(id);
         } catch (NumberFormatException ex) {
-            throw new ClassCastException("Идентификатор должен быть числом.");
+            throw new ClassCastException("The identifier has to be number.");
         }
         Object result = session.createCriteria(type)
                 .add(Restrictions.eq("id", i)).uniqueResult();
@@ -64,10 +64,10 @@ public class ParsingService {
             c.add(Restrictions.eq("id", newId));
             Object result = c.uniqueResult();
             if (result == null)
-                throw new ClassCastException("Указана неизвестная зависимая сущность.");
+                throw new ClassCastException("The unknown dependent entity is specified.");
             return result;
         } catch (NumberFormatException ex) {
-            throw new ClassCastException("Не выбрана связанная сущность.");
+            throw new ClassCastException("Related entity is not selected.");
         }
     }
     //EMPLOYEE
@@ -75,17 +75,17 @@ public class ParsingService {
         try {
             Long newTin = Long.parseLong(tin);
             if (newTin < 100000000000L || newTin >= 1000000000000L)
-                throw new ClassCastException("ИНН должен быть 12-тизначным положительным числом.");
+                throw new ClassCastException("TIN has to be 12-digit positive number.");
             return newTin;
         } catch (NumberFormatException ex) {
-            throw new ClassCastException("ИНН должен быть числом.");
+            throw new ClassCastException("TIN has to be number.");
         }
     }
     public static String getEmployeeFullName(String fullName) {
         if (fullName.length() == 0)
-            throw new ClassCastException("Имя не может быть пустым.");
+            throw new ClassCastException("The name can't be empty.");
         if (fullName.length() > 64)
-            throw new ClassCastException("Имя должно содержать до 65-ти символов.");
+            throw new ClassCastException("The name has to contain up to 65 symbols.");
         return fullName;
     }
     public static String getEmployeeTakingOffice(String takingOffice) {
@@ -95,36 +95,36 @@ public class ParsingService {
             sdf.parse(takingOffice);
         } catch (ParseException e) {
             throw new ClassCastException(
-                    "Дата должна быть допустимой и должна соответствовать формату YYYY-MM-DD.");
+                    "Date must be valid and must follow the format YYYY-MM-DD.");
         }
         return takingOffice;
     }
     public static String getEmployeePhoneNumber(String phoneNumber) {
         if (phoneNumber.length() == 0)
-            throw new ClassCastException("Номер телефона не может быть пустым.");
+            throw new ClassCastException("The phone number can't be empty.");
         if (phoneNumber.length() > 20)
-            throw new ClassCastException("Номер телефона должен содержать до 21-го символа.");
+            throw new ClassCastException("The phone number has to contain to the 21 symbol.");
         return phoneNumber;
     }
     public static String getEmployeeLogin(String login, Session session) {
         Object another = session.createCriteria(Employee.class).add(Restrictions.eq("login", login)).uniqueResult();
         if (another != null)
-            throw new ClassCastException("Логин должен быть уникальным.");
+            throw new ClassCastException("Login has to be unique.");
         if (login.length() == 0)
-            throw new ClassCastException("Логин не может быть пустым.");
+            throw new ClassCastException("Login can't be empty.");
         if (login.length() > 32)
-            throw new ClassCastException("Логин должен содержать до 33-ех символов.");
+            throw new ClassCastException("Login has to contain to the 33 of symbols.");
         return login;
     }
     //POSITION
     public static String getPositionName(String name, Session session) {
         if (name.length() == 0)
-            throw new ClassCastException("Название не может быть пустым.");
+            throw new ClassCastException("Name can't be empty.");
         Object another = session.createCriteria(Position.class).add(Restrictions.eq("name", name)).uniqueResult();
         if (another != null)
-            throw new ClassCastException("Название должно быть уникальным.");
+            throw new ClassCastException("Name has to be unique.");
         if (name.length() > 32)
-            throw new ClassCastException("Название должно содержать до 33-ех символов.");
+            throw new ClassCastException("Name has to contain to the 33 of symbols.");
         return name;
     }
     //ADDRESS
@@ -132,10 +132,10 @@ public class ParsingService {
         try {
             Short newFlat = Short.parseShort(flat);
             if (newFlat < 0)
-                throw new ClassCastException("Квартира не может быть отрицательной.");
+                throw new ClassCastException("The flat number can't be negative");
             return newFlat;
         } catch (NumberFormatException ex) {
-            throw new ClassCastException("ИНН должен быть числом.");
+            throw new ClassCastException("TIN has to be number.");
         }
     }
     //CELL
@@ -156,7 +156,7 @@ public class ParsingService {
 
     }
     public static String getCellNumber(String number){
-        String error = "Номер не соответствует формату (например 1-A-10).";
+        String error = "Number doesn't match (e.g. 1-A-10).";
         if (number.length() < 5)
             throw new ClassCastException(error);
         String[] parts = number.split("-");
@@ -179,11 +179,11 @@ public class ParsingService {
         try {
             float f = Float.parseFloat(x);
             if (f > 1000 || f < -1000){
-                throw new ClassCastException("Координаты должны быть в диапазоне [-1000,1000]");
+                throw new ClassCastException("Coordinates should be in the range [-1000,1000]");
             }
             return f;
         } catch (NumberFormatException ex) {
-            throw new ClassCastException("Координаты должны быть числами (точка в качестве разделителя).");
+            throw new ClassCastException("Coordinates must be numbers (point as a separator).");
         }
 
     }
@@ -192,10 +192,10 @@ public class ParsingService {
         try {
             int x = Integer.parseInt(value);
             if (x <= 0)
-                throw new ClassCastException("Величина должна быть больше нуля.");
+                throw new ClassCastException("The value should be greater than zero.");
             return x;
         } catch (NumberFormatException ex) {
-            throw new ClassCastException("Координаты должны быть числами (точка в качестве разделителя).");
+            throw new ClassCastException("Coordinates must be numbers (point as a separator).");
         }
     }
     //CELL VISITING
@@ -204,12 +204,12 @@ public class ParsingService {
         try{
             i = Integer.parseInt(id);
         } catch (NumberFormatException ex) {
-            throw new ClassCastException("Идентификатор должен быть числом.");
+            throw new ClassCastException("The identifier must be a number.");
         }
         Object product = session.createCriteria(Product.class)
                 .add(Restrictions.eq("id", i)).uniqueResult();
         if(product == null)
-            throw new ClassCastException("Указанный товар не существует.");
+            throw new ClassCastException("NThis item does not exist.");
         return (Product) product;
     }
     public static AcceptorShift getCellVisitingShift(String id, Session session){
@@ -217,12 +217,12 @@ public class ParsingService {
         try{
             i = Integer.parseInt(id);
         } catch (NumberFormatException ex) {
-            throw new ClassCastException("Идентификатор должен быть числом.");
+            throw new ClassCastException("The identifier has to be number.");
         }
         Object shift = session.createCriteria(AcceptorShift.class)
                 .add(Restrictions.eq("id", i)).uniqueResult();
         if(shift == null)
-            throw new ClassCastException("Указанная смена не существует.");
+            throw new ClassCastException("Specified shift doesn't exist");
         return (AcceptorShift)shift;
     }
     //PRODUCT TYPE
@@ -230,10 +230,10 @@ public class ParsingService {
         try {
             Long newCode = Long.parseLong(code);
             if (newCode <= 0)
-                throw new ClassCastException("Штрихкод не может быть меньше или равен 0.");
+                throw new ClassCastException("The barcode can not be less than or equal to 0.");
             return newCode;
         } catch (NumberFormatException ex) {
-            throw new ClassCastException("Штрихкод должен быть числом.");
+            throw new ClassCastException("The bar code has to be number.");
         }
     }
 }
