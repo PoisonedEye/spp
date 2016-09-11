@@ -10,7 +10,7 @@ public class LoginService {
         Object isLogined = session.get("logined");
         if (isLogined != null)
             if ((Boolean) isLogined) {
-                return "Вход в систему уже выполнен.";
+                return "Login is already executed.";
             }
         // try to get employee with selected login
         Employee employee = ServiceUtil.getEmployeeService().getEmployeeByLogin(login);

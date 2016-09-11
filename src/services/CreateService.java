@@ -35,7 +35,7 @@ public class CreateService {
         employee.setFired(json.getFired());
         dbSession.save(employee);
         tx.commit();
-        return "Сотрудник успешно добавлен.";
+        return "Employee successfully added";
     }
 
     public String tryCreatePosition(JsonPosition json, Map<String, Object> session){
@@ -49,7 +49,7 @@ public class CreateService {
         }
         dbSession.save(position);
         tx.commit();
-        return "Должность успешно добавлена.";
+        return "Position successfully added";
     }
     public String tryCreateAcceptorShift(JsonAcceptorShift json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -58,23 +58,23 @@ public class CreateService {
         try {
             acceptorShift.setAcceptor((Employee) ParsingService.getById(json.getAcceptor(),dbSession,Employee.class));
             acceptorShift.setBegining(ParsingService.getTime(json.getBegining()));
-            String error = "Смена не может оканчиваться до ее начала";
+            String error = "Shift can not be terminated before it's start";
             acceptorShift.setEnding(ParsingService.getLastTime(json.getEnding(),json.getBegining(),error));
         } catch (ClassCastException ex) {
             return ex.getMessage();
         }
         dbSession.save(acceptorShift);
         tx.commit();
-        return "Смена успешно добавлена.";
+        return "Shift successfully added";
     }
     public String tryCreateAddress(JsonAddress json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = dbSession.beginTransaction();
         Address address = new Address();
         try {
-            address.setCity(ParsingService.getString(json.getCity(),"Город",128));
-            address.setStreet(ParsingService.getString(json.getStreet(),"Улица",128));
-            address.setHouse(ParsingService.getString(json.getHouse(),"Дом",20));
+            address.setCity(ParsingService.getString(json.getCity(),"City",128));
+            address.setStreet(ParsingService.getString(json.getStreet(),"Street",128));
+            address.setHouse(ParsingService.getString(json.getHouse(),"House",20));
             address.setFlat(ParsingService.getAddressFlat(json.getFlat()));
             address.setEmployee((Employee) ParsingService.getById(json.getEmployee(),dbSession,Employee.class));
         } catch (ClassCastException ex) {
@@ -82,7 +82,7 @@ public class CreateService {
         }
         dbSession.save(address);
         tx.commit();
-        return "Адрес успешно добавлен.";
+        return "Address successfully added ";
     }
     public String tryCreateCell(JsonCell json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -99,7 +99,7 @@ public class CreateService {
         }
         dbSession.save(cell);
         tx.commit();
-        return "Ячейка успешно добавлена.";
+        return "Cell successfully added";
     }
     public String tryCreateCellType(JsonCellType json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -117,7 +117,7 @@ public class CreateService {
         }
         dbSession.save(cellType);
         tx.commit();
-        return "Вид ячейки успешно добавлен.";
+        return "Cell type has been successfully added";
     }
     public String tryCreateCellVisiting(JsonCellVisiting json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -134,20 +134,20 @@ public class CreateService {
         }
         dbSession.save(cellVisiting);
         tx.commit();
-        return "Посещение ячейки успешно добавлено.";
+        return "Visit cells successfully added";
     }
     public String tryCreateCompany(JsonCompany json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = dbSession.beginTransaction();
         Company company = new Company();
         try {
-            company.setName(ParsingService.getString(json.getName(),"Имя компании",64));
+            company.setName(ParsingService.getString(json.getName(),"Company name",64));
         } catch (ClassCastException ex) {
             return ex.getMessage();
         }
         dbSession.save(company);
         tx.commit();
-        return "Компания успешно добавлена.";
+        return "Company successfully added";
     }
 
     public String tryCreateProduct(JsonProduct json, Map<String, Object> session){
@@ -157,13 +157,13 @@ public class CreateService {
         try {
             product.setFirstGetTime(ParsingService.getTime(json.getFirstGetTime()));
             if (json.getLastGetTime() != null && !json.getLastGetTime().equals("")){
-                String error ="Продукт не может быть взят до того, как он был положен.";
+                String error ="The product can be taken before it was laid.";
                 product.setLastGetTime(ParsingService.getLastTime(json.getLastGetTime(),json.getFirstGetTime(),error));
             }
-            String error1 = "Указанной приемки не существует.";
+            String error1 = "The specified receiving does not exist.";
             product.setRecieving((Recieving) ParsingService.getForeign
                     (json.getRecieving(),dbSession,error1,Recieving.class));
-            String error2 = "Указанной передачи не существует.";
+            String error2 = "The specified transfer does not exist.";
             product.setTransfer((Transfer) ParsingService.getForeign
                     (json.getTransfer(),dbSession,error2,Transfer.class));
             product.setProductType((ProductType)ParsingService.getById(json.getProductType(),dbSession,ProductType.class));
@@ -172,20 +172,20 @@ public class CreateService {
         }
         dbSession.save(product);
         tx.commit();
-        return "Товар успешно добавлен.";
+        return "Product successfully added.";
     }
     public String tryCreateProductType(JsonProductType json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = dbSession.beginTransaction();
         ProductType productType = new ProductType();
         try {
-            productType.setFullModelName(ParsingService.getString(json.getFullModelName(),"Название модели", 64));
+            productType.setFullModelName(ParsingService.getString(json.getFullModelName(),"Model name", 64));
             productType.setBarcode(ParsingService.getBarcode(json.getBarcode()));
-            productType.setModel(ParsingService.getString(json.getModel(),"Модель",64));
+            productType.setModel(ParsingService.getString(json.getModel(),"Model",64));
             productType.setPackHeight(ParsingService.getValue(json.getPackHeight()));
             productType.setPackLength(ParsingService.getValue(json.getPackLength()));
             productType.setPackWidth(ParsingService.getValue(json.getPackWidth()));
-            productType.setProducer(ParsingService.getString(json.getProducer(),"Производитель",64));
+            productType.setProducer(ParsingService.getString(json.getProducer(),"Producer",64));
             int id = Integer.parseInt(json.getUnitSet());
             productType.setUnitSet((UnitSet) DataService.getById(UnitSet.class,id,dbSession));
             productType.setWeight(ParsingService.getValue(json.getWeight()));
@@ -194,7 +194,7 @@ public class CreateService {
         }
         dbSession.save(productType);
         tx.commit();
-        return "Вид товара успешно добавлен.";
+        return "Product type successfully added.";
     }
     public String tryCreateRecieving(JsonRecieving json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -210,7 +210,7 @@ public class CreateService {
         }
         dbSession.save(recieving);
         tx.commit();
-        return "Приемка успешно добавлена.";
+        return "Receiving successfully added.";
     }
 
     public String tryCreateTransfer(JsonTransfer json, Map<String, Object> session){
@@ -227,21 +227,21 @@ public class CreateService {
         }
         dbSession.save(transfer);
         tx.commit();
-        return "Передача успешно добавлена.";
+        return "Transfer successfully added.";
     }
     public String tryCreateUnitSet(JsonUnitSet json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = dbSession.beginTransaction();
         UnitSet unitSet = new UnitSet();
         try {
-            unitSet.setDistance(ParsingService.getString(json.getDistance(),"Имя еденицы измерения",16));
-            unitSet.setWeight(ParsingService.getString(json.getWeight(),"Имя еденицы измерения",16));
+            unitSet.setDistance(ParsingService.getString(json.getDistance(),"Units name",16));
+            unitSet.setWeight(ParsingService.getString(json.getWeight(),"Units name",16));
         } catch (ClassCastException ex) {
             return ex.getMessage();
         }
         dbSession.save(unitSet);
         tx.commit();
-        return "Еденицы измерения успешно добавлены.";
+        return "Units successfully added.";
     }
 
 }

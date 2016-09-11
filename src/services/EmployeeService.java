@@ -42,7 +42,7 @@ public class EmployeeService {
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         dbSession.beginTransaction();
         Position position = (Position) dbSession.createCriteria(Position.class).
-                add(Restrictions.eq("name", "Приемщик")).uniqueResult();
+                add(Restrictions.eq("name", "Acceptor")).uniqueResult();
         Criteria criteria = dbSession.createCriteria(Employee.class).add(Restrictions.eq("position", position));
         try {
             return criteria.list();

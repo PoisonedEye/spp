@@ -25,14 +25,13 @@ public class UpdateService {
             employee.setPhoneNumber(ParsingService.getEmployeePhoneNumber(json.getPhoneNumber()));
             if (!employee.getLogin().equals(json.getLogin()))
                 employee.setLogin(ParsingService.getEmployeeLogin(json.getLogin(), dbSession));
-            if (session.get("position").equals("Администратор")) {
-                if ((int) session.get("id") == id && !position.getName().equals("Администратор")) {
-                    return "Изменить должность администратора может только другой администратор. " +
-                            "Если очень надо, создайте другого администратора, и от его имени измените свою должность.";
+            if (session.get("position").equals("Administrator")) {
+                if ((int) session.get("id") == id && !position.getName().equals("Administrator")) {
+                    return "Only other administrator can change the administrator's position.";
                 }
             } else {
-                if (employee.getPosition().getName().equals("Администратор") ^ position.getName().equals("Администратор")) {
-                    return "Назначение и снятие должности 'Администратор' доступно только самим администраторам.";
+                if (employee.getPosition().getName().equals("Administrator") ^ position.getName().equals("Administrator")) {
+                    return "Appointment and removal of positions 'Administrator' available only by administrators.";
                 }
             }
             if (json.getPassword() != null)
@@ -43,7 +42,7 @@ public class UpdateService {
         }
         employee.setFired(json.getFired());
         tx.commit();
-        return "Успешно обновлено.";
+        return "Successfully updated.";
     }
     public String tryUpdatePosition(JsonPosition json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -58,7 +57,7 @@ public class UpdateService {
             return ex.getMessage();
         }
         tx.commit();
-        return "Успешно обновлено.";
+        return "Successfully updated.";
     }
     public String tryUpdateAcceptorShift(JsonAcceptorShift json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -69,13 +68,13 @@ public class UpdateService {
         try {
             acceptorShift.setAcceptor((Employee) ParsingService.getById(json.getAcceptor(),dbSession,Employee.class));
             acceptorShift.setBegining(ParsingService.getTime(json.getBegining()));
-            String error = "Смена не может оканчиваться до ее начала";
+            String error = "Shift can not be terminated before it's start";
             acceptorShift.setEnding(ParsingService.getLastTime(json.getEnding(),json.getBegining(),error));
         } catch (ClassCastException ex) {
             return ex.getMessage();
         }
         tx.commit();
-        return "Передача успешно обновлена.";
+        return "The transfer successfully updated.";
     }
     public String tryUpdateAddress(JsonAddress json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -84,16 +83,16 @@ public class UpdateService {
         Criteria criteria = dbSession.createCriteria(Address.class).add(Restrictions.eq("id", id));
         Address address = (Address) criteria.uniqueResult();
         try {
-            address.setCity(ParsingService.getString(json.getCity(),"Город",128));
-            address.setStreet(ParsingService.getString(json.getStreet(),"Улица",128));
-            address.setHouse(ParsingService.getString(json.getHouse(),"Дом",20));
+            address.setCity(ParsingService.getString(json.getCity(),"City",128));
+            address.setStreet(ParsingService.getString(json.getStreet(),"Street",128));
+            address.setHouse(ParsingService.getString(json.getHouse(),"House",20));
             address.setFlat(ParsingService.getAddressFlat(json.getFlat()));
             address.setEmployee((Employee) ParsingService.getById(json.getEmployee(),dbSession,Employee.class));
         } catch (ClassCastException ex) {
             return ex.getMessage();
         }
         tx.commit();
-        return "Успешно обновлено.";
+        return "Successfully updated.";
     }
     public String tryUpdateCell(JsonCell json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -109,7 +108,7 @@ public class UpdateService {
             return ex.getMessage();
         }
         tx.commit();
-        return "Успешно обновлено.";
+        return "Successfully updated.";
     }
     public String tryUpdateCellType(JsonCellType json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -128,7 +127,7 @@ public class UpdateService {
             return ex.getMessage();
         }
         tx.commit();
-        return "Успешно обновлено.";
+        return "Successfully updated.";
     }
     public String tryUpdateCellVisiting(JsonCellVisiting json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -146,7 +145,7 @@ public class UpdateService {
             return ex.getMessage();
         }
         tx.commit();
-        return "Успешно обновлено.";
+        return "Successfully updated.";
     }
     public String tryUpdateCompany(JsonCompany json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -155,12 +154,12 @@ public class UpdateService {
         Criteria criteria = dbSession.createCriteria(Company.class).add(Restrictions.eq("id", id));
         Company company = (Company) criteria.uniqueResult();
         try {
-            company.setName(ParsingService.getString(json.getName(),"Имя компании",64));
+            company.setName(ParsingService.getString(json.getName(),"Company name",64));
         } catch (ClassCastException ex) {
             return ex.getMessage();
         }
         tx.commit();
-        return "Компания успешно обновлена.";
+        return "Company successfully updated.";
     }
     public String tryUpdateProduct(JsonProduct json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -171,13 +170,13 @@ public class UpdateService {
         try {
             product.setFirstGetTime(ParsingService.getTime(json.getFirstGetTime()));
             if (json.getLastGetTime() != null && !json.getLastGetTime().equals("")){
-                String error ="Продукт не может быть взят до того, как он был положен.";
+                String error ="The product can't be taken before it has been put.";
                 product.setLastGetTime(ParsingService.getLastTime(json.getLastGetTime(),json.getFirstGetTime(),error));
             }
-            String error1 = "Указанной приемки не существует.";
+            String error1 = "The specified receiving does not exist.";
             product.setRecieving((Recieving) ParsingService.getForeign
                     (json.getRecieving(),dbSession,error1,Recieving.class));
-            String error2 = "Указанной передачи не существует.";
+            String error2 = "The specified transfer does not exist.";
             product.setTransfer((Transfer) ParsingService.getForeign
                     (json.getTransfer(),dbSession,error2,Transfer.class));
             product.setProductType((ProductType)ParsingService.getById(json.getProductType(),dbSession,ProductType.class));
@@ -185,7 +184,7 @@ public class UpdateService {
             return ex.getMessage();
         }
         tx.commit();
-        return "Товар успешно обновлен.";
+        return "Product successfully updated.";
     }
     public String tryUpdateProductType(JsonProductType json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -194,13 +193,13 @@ public class UpdateService {
         Criteria criteria = dbSession.createCriteria(ProductType.class).add(Restrictions.eq("id", id));
         ProductType productType = (ProductType) criteria.uniqueResult();
         try {
-            productType.setFullModelName(ParsingService.getString(json.getFullModelName(),"Название модели", 64));
+            productType.setFullModelName(ParsingService.getString(json.getFullModelName(),"Model name", 64));
             productType.setBarcode(ParsingService.getBarcode(json.getBarcode()));
-            productType.setModel(ParsingService.getString(json.getModel(),"Модель",64));
+            productType.setModel(ParsingService.getString(json.getModel(),"Model",64));
             productType.setPackHeight(ParsingService.getValue(json.getPackHeight()));
             productType.setPackLength(ParsingService.getValue(json.getPackLength()));
             productType.setPackWidth(ParsingService.getValue(json.getPackWidth()));
-            productType.setProducer(ParsingService.getString(json.getProducer(),"Производитель",64));
+            productType.setProducer(ParsingService.getString(json.getProducer(),"Producer",64));
             int setId = Integer.parseInt(json.getUnitSet());
             productType.setUnitSet((UnitSet) DataService.getById(UnitSet.class,setId,dbSession));
             productType.setWeight(ParsingService.getValue(json.getWeight()));
@@ -208,7 +207,7 @@ public class UpdateService {
             return ex.getMessage();
         }
         tx.commit();
-        return "Товар успешно обновлен.";
+        return "Product successfully updated.";
     }
     public String tryUpdateRecieving(JsonRecieving json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -225,7 +224,7 @@ public class UpdateService {
             return ex.getMessage();
         }
         tx.commit();
-        return "Приемка успешно обновлена.";
+        return "Receiving successfully updated.";
     }
     public String tryUpdateTransfer(JsonTransfer json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -242,7 +241,7 @@ public class UpdateService {
             return ex.getMessage();
         }
         tx.commit();
-        return "Передача успешно обновлена.";
+        return "Transfer successfully updated.";
     }
     public String tryUpdateUnitSet(JsonUnitSet json, Map<String, Object> session){
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -251,12 +250,12 @@ public class UpdateService {
         Criteria criteria = dbSession.createCriteria(UnitSet.class).add(Restrictions.eq("id", id));
         UnitSet unitSet = (UnitSet) criteria.uniqueResult();
         try {
-            unitSet.setDistance(ParsingService.getString(json.getDistance(),"Имя еденицы измерения",16));
-            unitSet.setWeight(ParsingService.getString(json.getWeight(),"Имя еденицы измерения",16));
+            unitSet.setDistance(ParsingService.getString(json.getDistance(),"Units name",16));
+            unitSet.setWeight(ParsingService.getString(json.getWeight(),"Units name",16));
         } catch (ClassCastException ex) {
             return ex.getMessage();
         }
         tx.commit();
-        return "Система едениц успешно обновлена.";
+        return "Units successfully added.";
     }
 }
