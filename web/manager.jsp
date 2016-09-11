@@ -32,7 +32,7 @@
                         </div>                        
                     </div>
                     <div class="button-line">
-                        <div class="generate-btn"><a href="<s:url action="XLSReport-transfers"/>">Generate as csv</a></div>
+                        <div class="generate-btn"><a href="<s:url action="XLSReport-transfers"/>">Generate as xls</a></div>
                         <div class="generate-btn"><a href="<s:url action="CSVReport-transfers"/>">Generate as csv</a></div>
                         <div onclick="Generate()" class="generate-btn">Generate as pdf</div> 
                     </div>
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="button-line">
-                        <div class="generate-btn"><a href="<s:url action="XLSReport-receivings"/>">Generate as csv</a></div>
+                        <div class="generate-btn"><a href="<s:url action="XLSReport-receivings"/>">Generate as xls</a></div>
                         <div class="generate-btn"><a href="<s:url action="CSVReport-receivings"/>">Generate as csv</a></div>
                         <div onclick="Generate()" class="generate-btn">Generate as pdf</div>
                     </div>
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <div class="button-line">
-                        <div class="generate-btn"><a href="<s:url action="XLSReport-acceptors"/>">Generate as csv</a></div>
+                        <div class="generate-btn"><a href="<s:url action="XLSReport-acceptors"/>">Generate as xls</a></div>
                         <div class="generate-btn"><a href="<s:url action="CSVReport-acceptors"/>">Generate as csv</a></div>
                         <div onclick="Generate()" class="generate-btn">Generate as pdf</div>
                     </div>
@@ -111,7 +111,7 @@
                         </div>
                     </div>
                     <div class="button-line">
-                        <div class="generate-btn"><a href="<s:url action="XLSReport-shifts"/>">Generate as csv</a></div>
+                        <div class="generate-btn"><a href="<s:url action="XLSReport-shifts"/>">Generate as xls</a></div>
                         <div class="generate-btn"><a href="<s:url action="CSVReport-shifts"/>">Generate as csv</a></div>
                         <div onclick="Generate()" class="generate-btn">Generate as pdf</div>
                     </div>
@@ -139,7 +139,7 @@
                         </div>
                     </div>
                     <div class="button-line">
-                        <div class="generate-btn"><a href="<s:url action="XLSReport-cells"/>">Generate as csv</a></div>
+                        <div class="generate-btn"><a href="<s:url action="XLSReport-cells"/>">Generate as xls</a></div>
                         <div class="generate-btn"><a href="<s:url action="CSVReport-cells"/>">Generate as csv</a></div>
                         <div onclick="Generate()" class="generate-btn">Generate as pdf</div>
                     </div>

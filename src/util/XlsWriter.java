@@ -17,20 +17,23 @@ public class XlsWriter extends DocumentWriter implements AutoCloseable {
     Row currentRow;
 
     public XlsWriter(String documentName){
+        workbook = new HSSFWorkbook();
         HSSFFont titleFont = workbook.createFont();
         titleFont.setBold(true);
-        titleFont.setFontHeight((short)30);
+        titleFont.setFontHeightInPoints((short)12);
         titleStyle = workbook.createCellStyle();
         titleStyle.setFont(titleFont);
 
         HSSFFont headerFont = workbook.createFont();
         headerFont.setBold(true);
         headerFont.setItalic(true);
+        headerFont.setFontHeightInPoints((short)12);
         headerStyle = workbook.createCellStyle();
         headerStyle.setFont(titleFont);
 
-        workbook = new HSSFWorkbook();
+
         sheet = workbook.createSheet(documentName);
+        sheet.setDefaultColumnWidth(30);
         currentRow = sheet.createRow(rowNum++);
     }
 
@@ -41,6 +44,7 @@ public class XlsWriter extends DocumentWriter implements AutoCloseable {
     }
 
     public XlsWriter t(String title) {
+        currentRow.setHeightInPoints(30);
         Cell cell = currentRow.createCell(cellNum++);
         cell.setCellStyle(titleStyle);
         cell.setCellValue(title);
@@ -48,6 +52,7 @@ public class XlsWriter extends DocumentWriter implements AutoCloseable {
     }
 
     public XlsWriter h(String header) {
+        currentRow.setHeightInPoints(15);
         Cell cell = currentRow.createCell(cellNum++);
         cell.setCellStyle(headerStyle);
         cell.setCellValue(header);

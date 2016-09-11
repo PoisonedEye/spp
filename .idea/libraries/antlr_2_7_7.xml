@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="xmlbeans-2.6.0">
+  <library name="antlr-2.7.7">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/ooxml-lib/xmlbeans-2.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/antlr-2.7.7.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
