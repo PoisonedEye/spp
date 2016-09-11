@@ -433,7 +433,9 @@
                 <param name="contentType">application/xls</param>
                 <param name="inputName">inputStream</param>
                 <param name="bufferSize">1024</param>
+                <param name="contentDisposition">attachment;filename="{1}.xls"</param>
             </result>
+            <result name="denied" type="chain">redirect</result>
         </action>
 
         <action name="CSVReport-*" method="{1}" class="actions.CsvReportAction">
@@ -441,7 +443,9 @@
                 <param name="contentType">application/csv</param>
                 <param name="inputName">inputStream</param>
                 <param name="bufferSize">1024</param>
+                <param name="contentDisposition">attachment;filename="{1}.csv"</param>
             </result>
+            <result name="denied" type="chain">redirect</result>
         </action>
 
 

@@ -2,7 +2,11 @@ package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
+import util.CsvWriter;
+import util.DocumentHelper;
+import util.ServiceUtil;
 
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Map;
 
@@ -23,22 +27,64 @@ public class CsvReportAction extends ActionSupport implements SessionAware {
     }
 
     public String transfers(){
-        return SUCCESS;
+        if (ServiceUtil.getLoginService().isLogined(userSession)) {
+            if (userSession.get("position").equals("Manager")){
+                try(CsvWriter writer = new CsvWriter()){
+                    inputStream = new ByteArrayInputStream(DocumentHelper.generateTransfer(writer));
+                    return SUCCESS;
+                }
+            }
+        }
+        return "denied";
     }
 
     public String receivings(){
-        return SUCCESS;
-    }
-
-    public String work(){
-        return SUCCESS;
-    }
-
-    public String products(){
-        return SUCCESS;
+        if (ServiceUtil.getLoginService().isLogined(userSession)) {
+            if (userSession.get("position").equals("Manager")){
+                try(CsvWriter writer = new CsvWriter()){
+                inputStream = new ByteArrayInputStream(DocumentHelper.generateReceiving(writer));
+                return SUCCESS;
+                }
+            }
+        }
+        return "denied";
     }
 
     public String acceptors(){
-        return SUCCESS;
+        if (ServiceUtil.getLoginService().isLogined(userSession)) {
+            if (userSession.get("position").equals("Manager")){
+                try(CsvWriter writer = new CsvWriter()) {
+
+                    inputStream = new ByteArrayInputStream(DocumentHelper.generateAcceptors(writer));
+                    return SUCCESS;
+                }
+            }
+        }
+        return "denied";
     }
+
+    public String shifts(){
+        if (ServiceUtil.getLoginService().isLogined(userSession)) {
+            if (userSession.get("position").equals("Manager")){
+                try(CsvWriter writer = new CsvWriter()) {
+                    inputStream = new ByteArrayInputStream(DocumentHelper.generateAcceptorShifts(writer));
+                    return SUCCESS;
+                }
+            }
+        }
+        return "denied";
+    }
+
+    public String cells(){
+        if (ServiceUtil.getLoginService().isLogined(userSession)) {
+            if (userSession.get("position").equals("Manager")){
+                try(CsvWriter writer = new CsvWriter()) {
+                    inputStream = new ByteArrayInputStream(DocumentHelper.generateCells(writer));
+                    return SUCCESS;
+                }
+            }
+        }
+        return "denied";
+    }
+
 }

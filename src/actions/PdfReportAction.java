@@ -2,14 +2,8 @@ package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
-import services.LoginService;
-import util.Csv;
-import util.ServiceUtil;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.Map;
 
 public class PdfReportAction extends ActionSupport implements SessionAware {
@@ -29,9 +23,6 @@ public class PdfReportAction extends ActionSupport implements SessionAware {
     }
 
     public String transfers(){
-        Csv.Writer writer = new Csv.Writer(new ByteArrayOutputStream());
-
-        writer.value("ololo");
         return SUCCESS;
     }
 
