@@ -1,9 +1,6 @@
 package stubs;
 
-import entities.AcceptorShift;
-import entities.CellType;
-import entities.CellVisiting;
-import entities.Product;
+import entities.*;
 import org.hibernate.*;
 import org.hibernate.bytecode.buildtime.spi.ClassDescriptor;
 import org.hibernate.jdbc.ReturningWork;
@@ -458,19 +455,40 @@ public class SessionStub implements Session {
         return null;
     }
 
+    public static String mode="default";
+
     @Override
     public Criteria createCriteria(Class aClass) {
-        CriteriaStub stub = new CriteriaStub();
-        if (aClass == CellType.class) {
-            stub.result = new CellType();
+        if (mode.equals("default")){
+            CriteriaStub stub = new CriteriaStub();
+            if (aClass == CellType.class) {
+                stub.result = new CellType();
+            }
+            if (aClass == AcceptorShift.class) {
+                stub.result = new AcceptorShift();
+            }
+            if (aClass == Product.class) {
+                stub.result = new Product();
+            }
+            return stub;
         }
-        if (aClass == AcceptorShift.class) {
-            stub.result = new AcceptorShift();
+        else if (mode.equals("loginTesting")){
+            CriteriaStub stub = new CriteriaStub();
+            if (aClass == Employee.class) {
+                Employee result = new Employee();
+                result.setId(1);
+                result.setLogin("login");
+                result.setPassword("password");
+                result.setFired(false);
+                result.setPosition(new Position());
+                stub.result = result;
+            }
+            return stub;
         }
-        if (aClass == Product.class) {
-            stub.result = new Product();
+        else{
+            return null;
         }
-        return stub;
+
     }
 
     @Override

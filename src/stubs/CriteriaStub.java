@@ -191,7 +191,8 @@ public class CriteriaStub implements Criteria {
     @Override
     public List list() throws HibernateException {
         List list = new ArrayList<Object>();
-        list.add(result);
+        if (result != null)
+            list.add(result);
         return list;
     }
 

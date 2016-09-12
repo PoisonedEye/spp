@@ -7,6 +7,8 @@ import java.util.Map;
 public class LoginService {
 
     public String Login(String login, String password, Map<String, Object> session) {
+        if (session == null)
+            return "Session is null.";
         Object isLogined = session.get("logined");
         if (isLogined != null)
             if ((Boolean) isLogined) {
@@ -32,6 +34,8 @@ public class LoginService {
     }
 
     public boolean isLogined(Map<String, Object> session) {
+        if (session == null)
+            return false;
         Object isLogined = session.get("logined");
         if (isLogined != null)
             if ((Boolean) isLogined)
@@ -40,6 +44,8 @@ public class LoginService {
     }
 
     public String Logout(Map<String, Object> session) {
+        if (session == null)
+            return "Session is null.";
         Object isLogined = session.get("logined");
         if (isLogined != null)
             if ((Boolean) isLogined) {

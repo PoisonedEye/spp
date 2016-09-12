@@ -33,7 +33,6 @@ public class CreateService {
             return ex.getMessage();
         }
 
-
         employee.setFired(json.getFired());
         employee.setBusy(json.getBusy());
         dbSession.save(employee);

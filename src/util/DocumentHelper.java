@@ -25,7 +25,7 @@ public class DocumentHelper{
                     .v(t.getTransferer().getFullName());
             criteria = dbSession.createCriteria(Product.class).add(Restrictions.eq("transfer", t));
             List products = criteria.list();
-            Map<String, Integer> types = new HashMap<String, Integer>();
+            Map<String, Integer> types = new HashMap<>();
             for (Object product : products) {
                 String type = ((Product) product).getProductType().getFullModelName();
                 types.put(type, types.get(type) == null ? 1 : types.get(type) + 1);
