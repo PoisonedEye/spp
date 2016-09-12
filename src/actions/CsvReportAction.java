@@ -7,6 +7,7 @@ import util.DocumentHelper;
 import util.ServiceUtil;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
@@ -26,7 +27,7 @@ public class CsvReportAction extends ActionSupport implements SessionAware {
         this.inputStream = inputStream;
     }
 
-    public String transfers(){
+    public String transfers()throws IOException {
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
             if (userSession.get("position").equals("Manager")){
                 try(CsvWriter writer = new CsvWriter()){
@@ -38,7 +39,7 @@ public class CsvReportAction extends ActionSupport implements SessionAware {
         return "denied";
     }
 
-    public String receivings(){
+    public String receivings()throws IOException{
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
             if (userSession.get("position").equals("Manager")){
                 try(CsvWriter writer = new CsvWriter()){
@@ -50,7 +51,7 @@ public class CsvReportAction extends ActionSupport implements SessionAware {
         return "denied";
     }
 
-    public String acceptors(){
+    public String acceptors()throws IOException{
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
             if (userSession.get("position").equals("Manager")){
                 try(CsvWriter writer = new CsvWriter()) {
@@ -63,7 +64,7 @@ public class CsvReportAction extends ActionSupport implements SessionAware {
         return "denied";
     }
 
-    public String shifts(){
+    public String shifts()throws IOException{
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
             if (userSession.get("position").equals("Manager")){
                 try(CsvWriter writer = new CsvWriter()) {
@@ -75,7 +76,7 @@ public class CsvReportAction extends ActionSupport implements SessionAware {
         return "denied";
     }
 
-    public String cells(){
+    public String cells()throws IOException{
         if (ServiceUtil.getLoginService().isLogined(userSession)) {
             if (userSession.get("position").equals("Manager")){
                 try(CsvWriter writer = new CsvWriter()) {

@@ -425,6 +425,7 @@
                 <param name="contentType">application/pdf</param>
                 <param name="inputName">inputStream</param>
                 <param name="bufferSize">1024</param>
+                <param name="contentDisposition">attachment;filename="{1}.pdf"</param>
             </result>
         </action>
 

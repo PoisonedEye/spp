@@ -4,13 +4,15 @@ import entities.*;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class DocumentHelper{
 
-    public static byte[] generateTransfer(DocumentWriter writer){
+    public static byte[] generateTransfer(DocumentWriter writer) throws IOException {
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         dbSession.beginTransaction();
         Criteria criteria = dbSession.createCriteria(Transfer.class);
@@ -42,7 +44,7 @@ public class DocumentHelper{
         return writer.getBytes();
     }
 
-    public static byte[] generateReceiving(DocumentWriter writer){
+    public static byte[] generateReceiving(DocumentWriter writer) throws IOException{
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         dbSession.beginTransaction();
         Criteria criteria = dbSession.createCriteria(Recieving.class);
@@ -74,7 +76,7 @@ public class DocumentHelper{
         return writer.getBytes();
     }
 
-    public static byte[] generateAcceptors(DocumentWriter writer){
+    public static byte[] generateAcceptors(DocumentWriter writer)throws IOException{
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         dbSession.beginTransaction();
         Position position = (Position) dbSession.createCriteria(Position.class).
@@ -106,7 +108,7 @@ public class DocumentHelper{
             }
     }
 
-    public static byte[] generateAcceptorShifts(DocumentWriter writer){
+    public static byte[] generateAcceptorShifts(DocumentWriter writer)throws IOException{
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         dbSession.beginTransaction();
         Criteria criteria = dbSession.createCriteria(AcceptorShift.class);
@@ -140,7 +142,7 @@ public class DocumentHelper{
         }
     }
 
-    public static byte[] generateCells(DocumentWriter writer){
+    public static byte[] generateCells(DocumentWriter writer)throws IOException{
         Session dbSession = HibernateUtil.getSessionFactory().getCurrentSession();
         dbSession.beginTransaction();
         Criteria criteria = dbSession.createCriteria(Cell.class);

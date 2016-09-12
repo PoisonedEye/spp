@@ -26,7 +26,7 @@
                 <div class="report-name">Transfers report</div>
                 <div class="report-info">
                     <div style="overflow:hidden;">
-                        <img class="report-img" src="images/5.jpeg"/>
+                        <img class="report-img" src="images/5.png"/>
                         <div class="report-text">
                             Report with information about all transfers.
                         </div>                        
@@ -34,7 +34,7 @@
                     <div class="button-line">
                         <div class="generate-btn"><a href="<s:url action="XLSReport-transfers"/>">Generate as xls</a></div>
                         <div class="generate-btn"><a href="<s:url action="CSVReport-transfers"/>">Generate as csv</a></div>
-                        <div onclick="Generate()" class="generate-btn">Generate as pdf</div> 
+                        <div class="generate-btn"><a href="<s:url action="PDFReport-transfers"/>">Generate as pdf</a></div>
                     </div>
                             
                 </div>                               
@@ -43,22 +43,15 @@
                 <div class="report-name">Receivings report</div>
                 <div class="report-info">
                     <div style="overflow:hidden;">
-                        <img class="report-img" src="images/5.jpeg" />
+                        <img class="report-img" src="images/5.png" />
                         <div class="report-text">
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
+                            Report with information about all receivings.
                         </div>
                     </div>
                     <div class="button-line">
                         <div class="generate-btn"><a href="<s:url action="XLSReport-receivings"/>">Generate as xls</a></div>
                         <div class="generate-btn"><a href="<s:url action="CSVReport-receivings"/>">Generate as csv</a></div>
-                        <div onclick="Generate()" class="generate-btn">Generate as pdf</div>
+                        <div class="generate-btn"><a href="<s:url action="PDFReport-receivings"/>">Generate as pdf</a></div>
                     </div>
 
                 </div>
@@ -67,25 +60,15 @@
                 <div class="report-name">Acceptors report</div>
                 <div class="report-info">
                     <div style="overflow:hidden;">
-                        <img class="report-img" src="images/5.jpeg" />
+                        <img class="report-img" src="images/5.png" />
                         <div class="report-text">
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
+                            Report with information about all acceptors and theirs shift statistic.
                         </div>
                     </div>
                     <div class="button-line">
                         <div class="generate-btn"><a href="<s:url action="XLSReport-acceptors"/>">Generate as xls</a></div>
                         <div class="generate-btn"><a href="<s:url action="CSVReport-acceptors"/>">Generate as csv</a></div>
-                        <div onclick="Generate()" class="generate-btn">Generate as pdf</div>
+                        <div class="generate-btn"><a href="<s:url action="PDFReport-acceptors"/>">Generate as pdf</a></div>
                     </div>
 
                 </div>
@@ -95,25 +78,15 @@
                 <div class="report-name">Acceptor shifts report</div>
                 <div class="report-info">
                     <div style="overflow:hidden;">
-                        <img class="report-img" src="images/5.jpeg" />
+                        <img class="report-img" src="images/5.png" />
                         <div class="report-text">
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
+                            Report with information about all acceptor shifts. Indicates all actions with products.
                         </div>
                     </div>
                     <div class="button-line">
                         <div class="generate-btn"><a href="<s:url action="XLSReport-shifts"/>">Generate as xls</a></div>
                         <div class="generate-btn"><a href="<s:url action="CSVReport-shifts"/>">Generate as csv</a></div>
-                        <div onclick="Generate()" class="generate-btn">Generate as pdf</div>
+                        <div class="generate-btn"><a href="<s:url action="PDFReport-shifts"/>">Generate as pdf</a></div>
                     </div>
 
                 </div>
@@ -123,25 +96,15 @@
                 <div class="report-name">Cells report</div>
                 <div class="report-info">
                     <div style="overflow:hidden;">
-                        <img class="report-img" src="images/5.jpeg" />
+                        <img class="report-img" src="images/5.png" />
                         <div class="report-text">
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
-                            text text text text text text text text text text text text
+                            Information about all cells and theirs content.
                         </div>
                     </div>
                     <div class="button-line">
                         <div class="generate-btn"><a href="<s:url action="XLSReport-cells"/>">Generate as xls</a></div>
                         <div class="generate-btn"><a href="<s:url action="CSVReport-cells"/>">Generate as csv</a></div>
-                        <div onclick="Generate()" class="generate-btn">Generate as pdf</div>
+                        <div class="generate-btn"><a href="<s:url action="PDFReport-cells"/>">Generate as pdf</a></div>
                     </div>
 
                 </div>
